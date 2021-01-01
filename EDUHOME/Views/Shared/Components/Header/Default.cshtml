@@ -37,7 +37,18 @@
                                         
                                     </li>
                                     <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
-                                    <li><a asp-controller="Home" asp-action="Index">Buy Now</a>
+                                    <li>
+                                        @if (!User.Identity.IsAuthenticated)
+                                        {
+                                            <a asp-controller="Account" asp-action="Login">Login</a>
+                                        }
+                                        else
+                                        {
+                                            <h3>@User.Identity.Name</h3>
+                                             <a asp-controller="Account" asp-action="Logout">LogOut</a>
+                                        }
+
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
