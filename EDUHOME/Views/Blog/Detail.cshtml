@@ -1,0 +1,173 @@
+﻿@model BlogDetailesVM
+@{
+    ViewData["Title"] = "BlogDetail";  <!--Bura mutleq fikir vermek lazimdi-->
+}
+<!-- Header Area Start -->
+<header class="top">
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div class="header-top-left">
+                        <p>HAVE ANY QUESTION ?  +880 5698  598  6587</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="header-top-right text-right">
+                        <ul>
+                            <li><a href="login.html">login</a></li>
+                            <li><a href="signup.html">signup</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Area End -->
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>courses details</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Blog Start -->
+
+<div class="event-details-area blog-area pt-150 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="event-details">
+                    <div class="event-details-img">
+
+
+                        <!--Eger wekil duz gorsenmezse burda img-e fikir vermek lazimdir-->
+
+                        <img src="~/assets/img/blog/@Model.Blog.Image" alt="event-details">
+                        <div class="event-date">
+                            <h3>20 <span>jun</span></h3>
+                        </div>
+                    </div>
+                    <div class="event-details-content">
+                        <h2>I must explain to you how all this a mistaken idea </h2>
+                        <h6>By Alex  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</h6>
+                        @Html.Raw(Model.BestDetailesWorkshop.Description)
+                        <div class="speakers-area fix">
+                            <h4>speakers</h4>
+                            @foreach (SpeakerBest speaker in Model.SpeakerBests)
+                            {
+                    <div class="single-speaker">
+                        <div class="speaker-img">
+                            <img src="~/assets/img/event/@speaker.Image" alt="speaker">
+                        </div>
+                        <div class="speaker-name">
+                            <h5>@speaker.Name</h5>
+                            <p>@speaker.Profesiya </p>
+                        </div>
+                    </div>}
+                        </div>
+                    </div>
+                    <div class="reply-area">
+                        <h3>@Model.Message.Title</h3>
+                        <p>@Model.Message.Description </p>
+                        <form id="contact-form" action="http://demo.devitems.com/eduhome/mail.php" method="post">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Name</p>
+                                    <input type="text" name="name" id="name">
+                                </div>
+                                <div class="col-md-12">
+                                    <p>Email</p>
+                                    <input type="text" name="email" id="email">
+                                </div>
+                                <div class="col-md-12">
+                                    <p>Subject</p>
+                                    <input type="text" name="subject" id="subject">
+                                    <p>Massage</p>
+                                    <textarea name="message" id="message" cols="15" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <a class="reply-btn" href="#" data-text="send"><span>send message</span></a>
+                            <p class="form-messege"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-sidebar right">
+                    <div class="single-blog-widget mb-50">
+                        <h3>search</h3>
+                        <div class="blog-search">
+                            <form id="search" action="#">
+                                <input type="search" placeholder="Search..." name="search" />
+                                <button type="submit">
+                                    <span><i class="fa fa-search"></i></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="single-blog-widget mb-50">
+                        <h3>categories</h3>
+                        <ul>
+                            <li><a href="#">CSS Engineering (10)</a></li>
+                            <li><a href="#">Political Science (12)</a></li>
+                            <li><a href="#">Micro Biology (08)</a></li>
+                            <li><a href="#">HTML5 &amp; CSS3 (15)</a></li>
+                            <li><a href="#">Web Design (20)</a></li>
+                            <li><a href="#">PHP (23)</a></li>
+                        </ul>
+                    </div>
+                    <div class="single-blog-widget mb-50">
+                        <div class="single-blog-banner">
+                            <a asp-controller="EventDetailes" asp-action="Index" id="blog"><img src="~/assets/img/blog/@Model.Blog.Image" alt="blog"></a>
+                            @Html.Raw(Model.Blog.Description)
+                        </div>
+                    </div>
+                    <div class="single-blog-widget mb-50">
+                        <h3>latest post</h3>
+                        @foreach (LatestPostDetail latest in Model.LatestPostDetails)
+                        {
+                            <div class="single-post mb-30">
+                                <div class="single-post-img">
+                                    <a asp-controller="EventDetailes" asp-action="Index">
+                                        <img src="~/assets/img/post/@latest.Image" alt="post">
+                                        <div class="blog-hover">
+                                            <i class="fa fa-link"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="single-post-content">
+                                    <h4><a asp-controller="EventDetailes" asp-action="Index">@latest.Title</a></h4>
+                                    <p>By Alex  / @latest.Date</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="single-blog-widget">
+                        <h3>tags</h3>
+                        <div class="single-tag">
+                            @foreach (TagsDetail tags in Model.TagsDetails)
+                            {
+                                <a asp-controller="EventDetailes" asp-action="Index" class="mr-10 mb-10">@tags.Name</a>
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog End -->

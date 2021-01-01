@@ -1,0 +1,111 @@
+﻿@model TeacherDetailsVM
+@{
+    ViewData["Title"] = "Index";
+    
+    }
+<!-- Header Area Start -->
+<header class="top">
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div class="header-top-left">
+                        <p>HAVE ANY QUESTION ?  +880 5698  598  6587</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="header-top-right text-right">
+                        <ul>
+                            <li><a href="login.html">login</a></li>
+                            <li><a href="signup.html">signup</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Area End -->
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>teachers / details</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Teacher Start -->
+<div class="teacher-details-area pt-150 pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-5 col-xs-12">
+                <div class="teacher-details-img">
+                    <img src="~/assets/img/teacher/@Model.KamranTeacherDetail.Image" alt="teacher">
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <div class="teacher-details-content ml-50">
+                    <h2>@Model.KamranTeacherDetail.Name</h2>
+                    <h5>@Model.KamranTeacherDetail.Profesiya</h5>
+                    <h4>@Model.KamranTeacherDetail.Title</h4>
+                    <p>@Model.KamranTeacherDetail.Description </p>
+                    <ul>
+                        <li><span>degree: </span>@Model.KamranTeacherDetail.degree</li>
+                        <li><span>experience: </span>@Model.KamranTeacherDetail.experience</li>
+                        <li><span>hobbies: </span>@Model.KamranTeacherDetail.hobbies</li>
+                        <li><span>faculty: </span>@Model.KamranTeacherDetail.faculty</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-4">
+                <div class="teacher-contact">
+                    <h4>@Model.ContactTeacherDetail.Title</h4>
+                    <p><span>mail me : </span>@Model.ContactTeacherDetail.Mail</p>
+                    <p><span>make a call : </span>@Model.ContactTeacherDetail.Mail</p>
+                    <p><span>skype : </span> @Model.ContactTeacherDetail.Skype</p>
+                    <ul>
+                        <li><a href="https://www.facebook.com/devitems/?ref=bookmarks">@Html.Raw(Model.ContactTeacherDetail.Facebook)</a></li>
+                        <li><a href="https://www.pinterest.com/devitemsllc/">@Html.Raw(Model.ContactTeacherDetail.Pinterest)</a></li>
+                        <li><a href="#">@Html.Raw(Model.ContactTeacherDetail.Vimeo)</a></li>
+                        <li><a href="https://twitter.com/devitemsllc">@Html.Raw(Model.ContactTeacherDetail.Twitter)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-8">
+                <div class="skill-area">
+                    <h4>skills</h4>
+                </div>
+                <div class="skill-wrapper">
+                    <div class="row">
+                        @foreach (SkillsTeacherDetail skills in Model.SkillsTeacherDetails)
+                        {
+                            <div class="col-sm-4">
+                                <div class="skill-bar-item">
+                                    <span>@skills.Name</span>
+                                    <div class="progress">
+                                        <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 85%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+                                            <span class="text-top">@skills.Rate%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Teacher End -->

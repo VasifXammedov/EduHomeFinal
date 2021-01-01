@@ -1,0 +1,152 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\BlogeDetailes\**" />
+    <Compile Remove="Views\CoursesDetailes\**" />
+    <Compile Remove="Views\EventDetailes\**" />
+    <Compile Remove="Views\TeacherDetails\**" />
+    <Content Remove="Views\BlogeDetailes\**" />
+    <Content Remove="Views\CoursesDetailes\**" />
+    <Content Remove="Views\EventDetailes\**" />
+    <Content Remove="Views\TeacherDetails\**" />
+    <EmbeddedResource Remove="Views\BlogeDetailes\**" />
+    <EmbeddedResource Remove="Views\CoursesDetailes\**" />
+    <EmbeddedResource Remove="Views\EventDetailes\**" />
+    <EmbeddedResource Remove="Views\TeacherDetails\**" />
+    <None Remove="Views\BlogeDetailes\**" />
+    <None Remove="Views\CoursesDetailes\**" />
+    <None Remove="Views\EventDetailes\**" />
+    <None Remove="Views\TeacherDetails\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201224174738_CreateSliderTable.cs" />
+    <Compile Remove="Migrations\20201224174738_CreateSliderTable.Designer.cs" />
+    <Compile Remove="Migrations\20201224181508_CreateNoticeTable.cs" />
+    <Compile Remove="Migrations\20201224181508_CreateNoticeTable.Designer.cs" />
+    <Compile Remove="Migrations\20201224183509_CreateProfessionTable.cs" />
+    <Compile Remove="Migrations\20201224183509_CreateProfessionTable.Designer.cs" />
+    <Compile Remove="Migrations\20201224184744_CreateChooseTable.cs" />
+    <Compile Remove="Migrations\20201224184744_CreateChooseTable.Designer.cs" />
+    <Compile Remove="Migrations\20201224191221_CreateCourseTable.cs" />
+    <Compile Remove="Migrations\20201224191221_CreateCourseTable.Designer.cs" />
+    <Compile Remove="Migrations\20201224193519_CreateLayerTable.cs" />
+    <Compile Remove="Migrations\20201224193519_CreateLayerTable.Designer.cs" />
+    <Compile Remove="Migrations\20201224193711_CreateLayerTable1.cs" />
+    <Compile Remove="Migrations\20201224193711_CreateLayerTable1.Designer.cs" />
+    <Compile Remove="Migrations\20201224203723_CreateCarouselTable.cs" />
+    <Compile Remove="Migrations\20201224203723_CreateCarouselTable.Designer.cs" />
+    <Compile Remove="Migrations\20201224211043_CreateBlogTable.cs" />
+    <Compile Remove="Migrations\20201224211043_CreateBlogTable.Designer.cs" />
+    <Compile Remove="Migrations\20201224214920_CreateCarouselTable1.cs" />
+    <Compile Remove="Migrations\20201224214920_CreateCarouselTable1.Designer.cs" />
+    <Compile Remove="Migrations\20201225150846_CreateBioTable.cs" />
+    <Compile Remove="Migrations\20201225150846_CreateBioTable.Designer.cs" />
+    <Compile Remove="Migrations\20201225171331_CreateWelcomeToEduTable.cs" />
+    <Compile Remove="Migrations\20201225171331_CreateWelcomeToEduTable.Designer.cs" />
+    <Compile Remove="Migrations\20201225173851_CreateAboutCarouselTable.cs" />
+    <Compile Remove="Migrations\20201225173851_CreateAboutCarouselTable.Designer.cs" />
+    <Compile Remove="Migrations\20201225175630_CreateAboutNoticeTable.cs" />
+    <Compile Remove="Migrations\20201225175630_CreateAboutNoticeTable.Designer.cs" />
+    <Compile Remove="Migrations\20201225193106_CreateHeaderFooterTable.cs" />
+    <Compile Remove="Migrations\20201225193106_CreateHeaderFooterTable.Designer.cs" />
+    <Compile Remove="Migrations\20201225200610_CreateAboutVideoTable.cs" />
+    <Compile Remove="Migrations\20201225200610_CreateAboutVideoTable.Designer.cs" />
+    <Compile Remove="Migrations\20201225212032_CreateCourseCourseDetaileTable.cs" />
+    <Compile Remove="Migrations\20201225212032_CreateCourseCourseDetaileTable.Designer.cs" />
+    <Compile Remove="Migrations\20201226120544_CreatTeacherTable.cs" />
+    <Compile Remove="Migrations\20201226120544_CreatTeacherTable.Designer.cs" />
+    <Compile Remove="Migrations\20201226120804_CreatTeacherTable.cs" />
+    <Compile Remove="Migrations\20201226120804_CreatTeacherTable.Designer.cs" />
+    <Compile Remove="Migrations\20201226122629_CreateTeachertecTable.cs" />
+    <Compile Remove="Migrations\20201226122629_CreateTeachertecTable.Designer.cs" />
+    <Compile Remove="Migrations\20201226183427_CreateMapAddressTable.cs" />
+    <Compile Remove="Migrations\20201226183427_CreateMapAddressTable.Designer.cs" />
+    <Compile Remove="Migrations\20201226192408_CreateMessageTable.cs" />
+    <Compile Remove="Migrations\20201226192408_CreateMessageTable.Designer.cs" />
+    <Compile Remove="Migrations\20201226203626_CreateIsDeleted.cs" />
+    <Compile Remove="Migrations\20201226203626_CreateIsDeleted.Designer.cs" />
+    <Compile Remove="Migrations\20201226234801_CreateCoursesDetailesTable.cs" />
+    <Compile Remove="Migrations\20201226234801_CreateCoursesDetailesTable.Designer.cs" />
+    <Compile Remove="Migrations\20201226235813_CreateBestDetailTable.cs" />
+    <Compile Remove="Migrations\20201226235813_CreateBestDetailTable.Designer.cs" />
+    <Compile Remove="Migrations\20201227013007_CreateBestDetailTable1.cs" />
+    <Compile Remove="Migrations\20201227013007_CreateBestDetailTable1.Designer.cs" />
+    <Compile Remove="Migrations\20201227014436_CreatLatest.cs" />
+    <Compile Remove="Migrations\20201227014436_CreatLatest.Designer.cs" />
+    <Compile Remove="Migrations\20201227014916_CreateLatestPostDetailTable1.cs" />
+    <Compile Remove="Migrations\20201227014916_CreateLatestPostDetailTable1.Designer.cs" />
+    <Compile Remove="Migrations\20201227140218_CreateBestDetailesWorkshopTable.cs" />
+    <Compile Remove="Migrations\20201227140218_CreateBestDetailesWorkshopTable.Designer.cs" />
+    <Compile Remove="Migrations\20201227141050_CreateWorkShop.cs" />
+    <Compile Remove="Migrations\20201227141050_CreateWorkShop.Designer.cs" />
+    <Compile Remove="Migrations\20201227145307_CreateBestTable.cs" />
+    <Compile Remove="Migrations\20201227145307_CreateBestTable.Designer.cs" />
+    <Compile Remove="Migrations\20201227150930_CreateSpeakerBest.cs" />
+    <Compile Remove="Migrations\20201227150930_CreateSpeakerBest.Designer.cs" />
+    <Compile Remove="Migrations\20201227151209_CreateSpeakerBest1.cs" />
+    <Compile Remove="Migrations\20201227151209_CreateSpeakerBest1.Designer.cs" />
+    <Compile Remove="Migrations\20201227151712_CreateSpeakerTable.cs" />
+    <Compile Remove="Migrations\20201227151712_CreateSpeakerTable.Designer.cs" />
+    <Compile Remove="Migrations\20201227173332_CreateKamranTeacherTable.cs" />
+    <Compile Remove="Migrations\20201227173332_CreateKamranTeacherTable.Designer.cs" />
+    <Compile Remove="Migrations\20201227180321_CreateContactTeacherTable.cs" />
+    <Compile Remove="Migrations\20201227180321_CreateContactTeacherTable.Designer.cs" />
+    <Compile Remove="Migrations\20201227182715_CreateSkillsTeacherTable.cs" />
+    <Compile Remove="Migrations\20201227182715_CreateSkillsTeacherTable.Designer.cs" />
+    <Compile Remove="Migrations\20201227202250_CreateCourseIdAndCourseDetaileTable.cs" />
+    <Compile Remove="Migrations\20201227202250_CreateCourseIdAndCourseDetaileTable.Designer.cs" />
+    <Compile Remove="Migrations\20201227203137_CreateCourseIdAndCourseDetaileTable1.cs" />
+    <Compile Remove="Migrations\20201227203137_CreateCourseIdAndCourseDetaileTable1.Designer.cs" />
+    <Compile Remove="Migrations\20201227203623_CreateAddCourse.cs" />
+    <Compile Remove="Migrations\20201227203623_CreateAddCourse.Designer.cs" />
+    <Compile Remove="Migrations\20201227204122_CreateMazgimXarabOldu.cs" />
+    <Compile Remove="Migrations\20201227204122_CreateMazgimXarabOldu.Designer.cs" />
+    <Compile Remove="Migrations\20201228054811_CreateFOrenkeyTable.cs" />
+    <Compile Remove="Migrations\20201228054811_CreateFOrenkeyTable.Designer.cs" />
+    <Compile Remove="Migrations\20201228055516_CreateBawim.cs" />
+    <Compile Remove="Migrations\20201228055516_CreateBawim.Designer.cs" />
+    <Compile Remove="Migrations\20201228082736_CreateCouseniDuzeltmek.cs" />
+    <Compile Remove="Migrations\20201228082736_CreateCouseniDuzeltmek.Designer.cs" />
+    <Compile Remove="Migrations\20201228100828_ChangeCourseAndCourseRelationTables.cs" />
+    <Compile Remove="Migrations\20201228100828_ChangeCourseAndCourseRelationTables.Designer.cs" />
+    <Compile Remove="Migrations\20201228101245_ChangeCourseAndCourseRelationTables1.cs" />
+    <Compile Remove="Migrations\20201228101245_ChangeCourseAndCourseRelationTables1.Designer.cs" />
+    <Compile Remove="Migrations\20201228101451_ChangeCourseAndCourseRelationTables2.cs" />
+    <Compile Remove="Migrations\20201228101451_ChangeCourseAndCourseRelationTables2.Designer.cs" />
+    <Compile Remove="Migrations\20201228200843_Yoxlama.cs" />
+    <Compile Remove="Migrations\20201228200843_Yoxlama.Designer.cs" />
+    <Compile Remove="Migrations\20201230094306_CreateEvent.cs" />
+    <Compile Remove="Migrations\20201230094306_CreateEvent.Designer.cs" />
+    <Compile Remove="Migrations\20201230163339_CreateEventLocation.cs" />
+    <Compile Remove="Migrations\20201230163339_CreateEventLocation.Designer.cs" />
+    <Compile Remove="Migrations\20201230164612_CreateEvenDetail.cs" />
+    <Compile Remove="Migrations\20201230164612_CreateEvenDetail.Designer.cs" />
+    <Compile Remove="Models\BestDetail.cs" />
+    <Compile Remove="Models\CourseDetailEncineering.cs" />
+    <Compile Remove="Models\CourseFeaturesDetail.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Course\CoursDetaile.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
+</Project>
