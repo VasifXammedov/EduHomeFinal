@@ -44,7 +44,8 @@ namespace EDUHOME.DAL
         public DbSet<ContactTeacherDetail> ContactTeacherDetails { get; set; }
         public DbSet<SkillsTeacherDetail> SkillsTeacherDetails { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        { 
+        {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Blog>()
                             .HasOne(b => b.BlogDetail)
                             .WithOne(b => b.Blog)

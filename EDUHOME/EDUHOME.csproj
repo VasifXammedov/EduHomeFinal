@@ -126,6 +126,8 @@
     <Compile Remove="Migrations\20201230163339_CreateEventLocation.Designer.cs" />
     <Compile Remove="Migrations\20201230164612_CreateEvenDetail.cs" />
     <Compile Remove="Migrations\20201230164612_CreateEvenDetail.Designer.cs" />
+    <Compile Remove="Migrations\20210101165752_AppUsersTables.cs" />
+    <Compile Remove="Migrations\20210101165752_AppUsersTables.Designer.cs" />
     <Compile Remove="Models\BestDetail.cs" />
     <Compile Remove="Models\CourseDetailEncineering.cs" />
     <Compile Remove="Models\CourseFeaturesDetail.cs" />
@@ -148,6 +150,27 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Admin\fonts\et-line.svg" />
+    <None Include="wwwroot\Admin\fonts\fontawesome-webfont3e6e.svg" />
+    <None Include="wwwroot\Admin\fonts\fontawesome-webfont3e6e.woff2" />
+    <None Include="wwwroot\Admin\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\Admin\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\Admin\fonts\ionicons28b5.svg" />
+    <None Include="wwwroot\Admin\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
+    <None Include="wwwroot\Admin\js\ajax-mail.js" />
+    <None Include="wwwroot\Admin\js\bootstrap.min.js" />
+    <None Include="wwwroot\Admin\js\jquery.magnific-popup.js" />
+    <None Include="wwwroot\Admin\js\jquery.mb.YTPlayer.js" />
+    <None Include="wwwroot\Admin\js\jquery.meanmenu.js" />
+    <None Include="wwwroot\Admin\js\jquery.nicescroll.min.js" />
+    <None Include="wwwroot\Admin\js\main.js" />
+    <None Include="wwwroot\Admin\js\owl.carousel.min.js" />
+    <None Include="wwwroot\Admin\js\plugins.js" />
+    <None Include="wwwroot\Admin\js\vendor\jquery-1.12.0.min.js" />
+    <None Include="wwwroot\Admin\js\vendor\modernizr-2.8.3.min.js" />
   </ItemGroup>
 
 </Project>

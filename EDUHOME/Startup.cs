@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EDUHOME.DAL;
+using EDUHOME.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,7 +28,22 @@ namespace EDUHOME
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-                services.AddDbContext<AppDbContext>(options =>
+            services.AddIdentity<AppUser, IdentityRole>(identityOptions =>
+            {
+                identityOptions.Password.RequiredLength = 8;
+                identityOptions.Password.RequireNonAlphanumeric = true;
+                identityOptions.Password.RequireDigit = true;
+                identityOptions.Password.RequireLowercase = true;
+                identityOptions.Password.RequireUppercase = true;
+
+                identityOptions.User.RequireUniqueEmail = true;
+
+                identityOptions.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                identityOptions.Lockout.MaxFailedAccessAttempts = 3;
+                identityOptions.Lockout.AllowedForNewUsers = true;
+
+            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
+            services.AddDbContext<AppDbContext>(options =>
                options.UseSqlServer(Configuration["ConnectionString:Default"])
             );
         }
@@ -49,17 +66,18 @@ namespace EDUHOME
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                    "areas",
-                  "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                  "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
          );
-                endpoints.MapControllerRoute(
-                 "ConnectionString",
-                 "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                //endpoints.MapControllerRoute(
+                // "ConnectionString",
+                // "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
                endpoints.MapControllerRoute(
                      "default",
