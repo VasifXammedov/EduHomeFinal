@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vasif\\Desktop\\Back-End-master\\Back\\EDUHOME\\EDUHOME.csproj": {}
+    "C:\\Users\\Vasif\\Desktop\\EduHomeFinal\\EDUHOME\\EDUHOME.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vasif\\Desktop\\Back-End-master\\Back\\EDUHOME\\EDUHOME.csproj": {
+    "C:\\Users\\Vasif\\Desktop\\EduHomeFinal\\EDUHOME\\EDUHOME.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vasif\\Desktop\\Back-End-master\\Back\\EDUHOME\\EDUHOME.csproj",
+        "projectUniqueName": "C:\\Users\\Vasif\\Desktop\\EduHomeFinal\\EDUHOME\\EDUHOME.csproj",
         "projectName": "EDUHOME",
-        "projectPath": "C:\\Users\\Vasif\\Desktop\\Back-End-master\\Back\\EDUHOME\\EDUHOME.csproj",
+        "projectPath": "C:\\Users\\Vasif\\Desktop\\EduHomeFinal\\EDUHOME\\EDUHOME.csproj",
         "packagesPath": "C:\\Users\\Vasif\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vasif\\Desktop\\Back-End-master\\Back\\EDUHOME\\obj\\",
+        "outputPath": "C:\\Users\\Vasif\\Desktop\\EduHomeFinal\\EDUHOME\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vasif\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,6 +38,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.10, )"
