@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EDUHOME.Extensions;
 using EDUHOME.Models;
 using EDUHOME.ViewModels;
 using Microsoft.AspNetCore.Identity;
@@ -28,6 +29,47 @@ namespace EDUHOME.Controllers
         {
             return View();
         }
+
+        #region Login
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginVM login)
+        {
+            if (!ModelState.IsValid) return View();
+            AppUser user = await _userManager.FindByEmailAsync(login.Email);
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Email ve ya password sehfdi!!!");
+                return View();
+            }
+
+            if (user.IsDeleted)
+            {
+                ModelState.AddModelError("", "Hesab bloklanib!!!");
+                return View();
+            }
+
+            Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signInManager.PasswordSignInAsync(user, login.Password, true, true);
+
+            if (signInResult.IsLockedOut)
+            {
+                ModelState.AddModelError("", "Bir nece deqiqe gozleyin!!!");
+                return View(login);
+            }
+
+            if (signInResult.Succeeded)
+            {
+                ModelState.AddModelError("", "Email ve ya password sehfdi!!!");
+                return View();
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        #endregion
+
+
         public IActionResult Register()
         {
             return View();
@@ -56,6 +98,7 @@ namespace EDUHOME.Controllers
                 }
                 return View();
             }
+           await _userManager.AddToRoleAsync(newUser, Roles.Member.ToString());
             await _signInManager.SignInAsync(newUser, true);
             return RedirectToAction("Index", "Home");
         }
@@ -79,10 +122,10 @@ namespace EDUHOME.Controllers
 
         //public async Task CreateUserRole()
         //{
-        //    if (!(await _roleManager.RoleExistsAsync("Admin")))
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
-        //    if (!(await _roleManager.RoleExistsAsync("Member")))
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
+        //    if (!(await _roleManager.RoleExistsAsync(Roles.Admin.ToString())))
+        //        await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Admin.ToString() });
+        //    if (!(await _roleManager.RoleExistsAsync(Roles.Member.ToString())))
+        //        await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Member.ToString() });
         //}
 
         #endregion

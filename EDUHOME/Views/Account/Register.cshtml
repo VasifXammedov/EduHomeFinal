@@ -181,7 +181,7 @@
                                 <form  method="post">
                                     <input asp-for="Fullname" placeholder="Fullrname">
                                     <span asp-validation-for="Fullname" class="text-danger"></span>
-                                    <input asp-for="Username" placeholder="Fullrname">
+                                    <input asp-for="Username" placeholder="Username">
                                     <span asp-validation-for="Username" class="text-danger"></span>
                                     <input asp-for="Email" placeholder="Email">
                                     <span asp-validation-for="Email" class="text-danger"></span>
@@ -193,7 +193,7 @@
                                         <div class="login-toggle-btn">
                                             <input type="checkbox" id="remember">
                                             <label for="remember">Remember me</label>
-                                            <a asp-controller="Account" asp-action="Login">Forgot Password?</a>
+                                            <a asp-controller="Account" asp-action="Login">Login</a>
                                         </div>
                                         <button type="submit" class="default-btn">sign up</button>
                                     </div>
