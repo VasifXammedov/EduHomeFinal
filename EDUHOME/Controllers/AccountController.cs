@@ -22,6 +22,8 @@ namespace EDUHOME.Controllers
             _signInManager = signInManager;
             _roleManager = roleManager;
         }
+
+
         public IActionResult Login()
         {
             return View();
@@ -30,6 +32,9 @@ namespace EDUHOME.Controllers
         {
             return View();
         }
+
+        #region Register
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterVM register)
@@ -38,11 +43,11 @@ namespace EDUHOME.Controllers
             AppUser newUser = new AppUser
             {
                 Fullname = register.Fullname,
-                Email=register.Email,
-                UserName=register.Username
+                Email = register.Email,
+                UserName = register.Username
 
             };
-            IdentityResult identityResult= await _userManager.CreateAsync(newUser, register.Password);
+            IdentityResult identityResult = await _userManager.CreateAsync(newUser, register.Password);
             if (!identityResult.Succeeded)
             {
                 foreach (var error in identityResult.Errors)
@@ -55,19 +60,32 @@ namespace EDUHOME.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        #endregion
 
-        public  async Task<IActionResult> Logout()
+
+        #region Logout
+
+        public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
 
-        public async Task CreateUserRole()
-        {
-            if (!(await _roleManager.RoleExistsAsync("Admin")))
-                await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
-            if (!(await _roleManager.RoleExistsAsync("Member")))
-                await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
-        }
+        #endregion
+
+
+
+        #region Create User Role
+
+        //public async Task CreateUserRole()
+        //{
+        //    if (!(await _roleManager.RoleExistsAsync("Admin")))
+        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
+        //    if (!(await _roleManager.RoleExistsAsync("Member")))
+        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
+        //}
+
+        #endregion
+
     }
 }
