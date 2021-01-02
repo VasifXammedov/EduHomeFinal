@@ -8,7 +8,7 @@ namespace EDUHOME.Helpers
 {
     public class Helper
     {
-        public static bool DeleteImage(string root,string folder,string fileName)
+        public static bool DeleteImage(string root, string folder, string fileName)
         {
             string path = Path.Combine(root, folder, fileName);
             if (System.IO.File.Exists(path))

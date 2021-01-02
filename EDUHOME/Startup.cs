@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EDUHOME.DAL;
+using EDUHOME.Helpers;
 using EDUHOME.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -42,7 +43,8 @@ namespace EDUHOME
                 identityOptions.Lockout.MaxFailedAccessAttempts = 3;
                 identityOptions.Lockout.AllowedForNewUsers = true;
 
-            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
+            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>()
+            .AddErrorDescriber<AzIdentityErrorDescriber>();
             services.AddDbContext<AppDbContext>(options =>
                options.UseSqlServer(Configuration["ConnectionString:Default"])
             );
@@ -76,7 +78,7 @@ namespace EDUHOME
                 endpoints.MapControllerRoute(
                    "areas",
                   "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
-         );
+             );
                 //endpoints.MapControllerRoute(
                 // "ConnectionString",
                 // "{area:exists}/{controller=Home}/{action=Index}/{id?}");

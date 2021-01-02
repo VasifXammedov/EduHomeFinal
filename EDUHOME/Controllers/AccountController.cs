@@ -50,7 +50,8 @@ namespace EDUHOME.Controllers
                 return View();
             }
 
-            Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signInManager.PasswordSignInAsync(user, login.Password, true, true);
+            Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signInManager
+                .PasswordSignInAsync(user, login.Password, true, true);
 
             if (signInResult.IsLockedOut)
             {

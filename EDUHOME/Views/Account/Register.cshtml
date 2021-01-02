@@ -48,8 +48,8 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="header-top-right text-right">
                             <ul>
-                                <li><a href="~/Admin/login.html">login</a></li>
-                                <li><a href="~/Admin/signup.html">signup</a></li>
+                                <li><a asp-controller="Account" asp-action="Login">login</a></li>
+                                <li><a asp-controller="Account" asp-action="Register">signup</a></li>
                             </ul>
                         </div>
                     </div>
@@ -71,50 +71,28 @@
                                 <nav>
                                     <ul>
                                         <li>
-                                            <a href="~/Admin/index.html">Home</a>
-                                            <ul>
-                                                <li><a href="~/Admin/index.html">Home One</a></li>
-                                                <li><a href="~/Admin/index-2.html">Home Two</a></li>
-                                                <li><a href="~/Admin/index-3.html">Home Three</a></li>
-                                                <li><a href="~/Admin/index-4.html">Home Four</a></li>
-                                                <li><a href="~/Admin/index-5.html">Home Five</a></li>
-                                            </ul>
+                                            <a asp-controller="Home" asp-action="Index">Home</a>
+                                            <
                                         </li>
-                                        <li><a href="~/Admin/about.html">About</a></li>
+                                        <li><a asp-controller="About" asp-action="Index">About</a></li>
                                         <li>
-                                            <a href="~/Admin/course.html">courses</a>
-                                            <ul>
-                                                <li><a href="~/Admin/course.html">courses</a></li>
-                                                <li><a href="~/Admin/course-details.html">courses details</a></li>
-                                            </ul>
+                                            <a asp-controller="courses" asp-action="Index">courses</a>
+                                            
                                         </li>
                                         <li>
-                                            <a href="~/Admin/event.html">event</a>
-                                            <ul>
-                                                <li><a href="~/Admin/event.html">event</a></li>
-                                                <li><a href="~/Admin/event-left-side-bar.html">event left sidebar</a></li>
-                                                <li><a href="~/Admin/event-right-side-bar.html">event right sidebar</a></li>
-                                                <li><a href="~/Admin/event-details.html">event details</a></li>
-                                            </ul>
+                                            <a asp-controller="event" asp-action="Index">event</a>
+                                            
                                         </li>
                                         <li class="hidden-sm">
-                                            <a href="~/Admin/teacher.html">teacher</a>
-                                            <ul>
-                                                <li><a href="~/Admin/teacher.html">teacher</a></li>
-                                                <li><a href="~/Admin/teacher-details.html">teacher details</a></li>
-                                            </ul>
+                                            <a asp-controller="teacher" asp-action="Index">teacher</a>
+                                            
                                         </li>
                                         <li>
-                                            <a href="~/Admin/blog.html">blog</a>
-                                            <ul>
-                                                <li><a href="~/Admin/blog.html">blog</a></li>
-                                                <li><a href="~/Admin/blog-left-side-bar.html">blog left sidebar</a></li>
-                                                <li><a href="~/Admin/blog-right-side-bar.html">blog righ sidebar</a></li>
-                                                <li><a href="~/Admin/blog-details.html">blog details</a></li>
-                                            </ul>
+                                            <a asp-controller="blog" asp-action="Index">blog</a>
+                                            
                                         </li>
-                                        <li><a href="~/Admin/contact.html">Contact</a></li>
-                                        <li><a href="~/Admin/#">Buy Now</a>
+                                        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                                       
                                     </ul>
                                 </nav>
                             </div>

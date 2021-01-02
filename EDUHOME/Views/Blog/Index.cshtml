@@ -1,7 +1,5 @@
 ﻿@model List<Blog>
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Index"; }
 
 <!-- Header Area Start -->
 <header class="top">
@@ -26,6 +24,7 @@
     </div>
 </header>
 <!-- Header Area End -->
+
 <!-- Banner Area Start -->
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
@@ -49,32 +48,31 @@
         <div class="row">
             @foreach (Blog blog in Model)
             {
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="single-blog">
-                        <div class="blog-img">
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="single-blog">
+        <div class="blog-img">
 
-                                  
 
-                            <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id"><img src="~/assets/img/blog/@blog.Image" alt="blog"></a>
-                            <div class="blog-hover">
-                                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id"><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                        <div class="blog-content">
-                            <div class="blog-top">
-                                <p>By Alex  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
-                            </div>
-                            <div class="blog-bottom">
-                                <h2><a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">@blog.Description </a></h2>
-                                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
+
+            <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id"><img src="~/assets/img/blog/@blog.Image" alt="blog"></a>
+            <div class="blog-hover">
+                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id"><i class="fa fa-link"></i></a>
+            </div>
+        </div>
+        <div class="blog-content">
+            <div class="blog-top">
+                <p>By Alex  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
+            </div>
+            <div class="blog-bottom">
+                <h2><a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">@blog.Description </a></h2>
+                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">read more</a>
+            </div>
+        </div>
+    </div>
+</div>            }
         </div>
 
-        <div class="row">
+        @*<div class="row">
             <div class="col-xs-12">
                 <div class="pagination">
                     <ul>
@@ -84,7 +82,30 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div>*@
     </div>
 </div>
+<div class="row text-center">
+    <nav aria-label="...">
+        <ul class="pagination pagination-lg">
+            @for (int i = 1; i <= ViewBag.PageCount; i++)
+            {
+                if (i == ViewBag.page)
+                {
+<li class="page-item active" aria-current="page">
+    <span class="page-link">@i</span>
+</li> }
+                else
+                {
+<li class="page-item">
+    <a class="page-link" asp-controller="Blog"
+       asp-action="Index"
+       asp-route-page="@i">@i</a>
+</li>                }
+
+            }
+        </ul>
+    </nav>
+</div>
+
 <!-- Blog End -->

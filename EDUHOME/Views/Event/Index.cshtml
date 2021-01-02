@@ -70,8 +70,33 @@
             </div>
         </div>
     </div>
-</div>            }
+</div>      }
         </div>
     </div>
 </div>
+<div class="row text-center">
+    <nav aria-label="...">
+        <ul class="pagination pagination-lg">
+            @for (int i = 1; i <= ViewBag.PageCount; i++)
+            {
+                if (i == ViewBag.page)
+                {
+<li class="page-item active" aria-current="page">
+    <span class="page-link">@i</span>
+</li>
+ }
+else
+{
+<li class="page-item">
+    <a class="page-link" asp-controller="Event"
+       asp-action="Index"
+       asp-route-page="@i">@i</a>
+</li>
+           }
+
+}
+        </ul>
+    </nav>
+</div>
+
 <!-- Event End -->

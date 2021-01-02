@@ -13,8 +13,8 @@ namespace EDUHOME.Helpers
             return new IdentityError
             {
                 Code = nameof(PasswordRequiresNonAlphanumeric),
-                Description="Shifrede her hansi bir simvol olmalidir"
-        };
+                Description = "Shifrede her hansi bir simvol olmalidir"
+            };
         }
     }
 }

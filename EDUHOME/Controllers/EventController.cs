@@ -17,8 +17,18 @@ namespace EDUHOME.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
+            ViewBag.PageCount = Decimal.Ceiling((decimal)_db.LatestPostDetails.Where(b => b.IsDeleted == false).Count() / 3);
+            ViewBag.page = page;
+            if (page == null)
+            {
+                List<LatestPostDetail> LatestPostDetails = _db.LatestPostDetails.Where(b => b.IsDeleted == false).Take(3).ToList();
+                return View(LatestPostDetails);
+            }
+            List<LatestPostDetail> latestPostDetails = _db.LatestPostDetails.Where(b => b.IsDeleted == false).Skip((int)(page - 1) * 3).Take(3).ToList();
+            return View(latestPostDetails);
+
             List<LatestPostDetail> blogDetails = _db.LatestPostDetails.Where(b => b.IsDeleted == false).ToList();
             return View(blogDetails);
         }

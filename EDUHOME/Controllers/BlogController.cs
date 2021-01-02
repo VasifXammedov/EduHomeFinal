@@ -17,10 +17,22 @@ namespace EDUHOME.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
-            List<Blog> blogs = _db.Blogs.Where(b => b.HasDeleted == false).ToList();
+            ViewBag.PageCount = Decimal.Ceiling((decimal)_db.Blogs.Where(b => b.HasDeleted == false).Count() / 3);
+            ViewBag.page = page;
+            if (page == null)
+            {
+                List<Blog> Blogs = _db.Blogs.Where(b => b.HasDeleted == false).Take(3).ToList();
+                return View(Blogs);
+            }
+            List<Blog> blogs = _db.Blogs.Where(b => b.HasDeleted == false).Skip((int)(page - 1) * 3).Take(3).ToList();
             return View(blogs);
+
+            //List<Blog> blogs = _db.Blogs.Where(b => b.HasDeleted == false).ToList();
+            //return View(blogs);
+
+
         }
         
        
