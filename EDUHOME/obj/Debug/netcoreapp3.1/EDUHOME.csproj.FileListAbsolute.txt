@@ -981,3 +981,4 @@ C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Event\Detail.cshtml.g.cs
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Index.cshtml.g.cs
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Create.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Delete.cshtml.g.cs

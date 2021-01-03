@@ -73,5 +73,34 @@ namespace EDUHOME.Areas.Admin.Controllers
 
         #endregion
 
+        #region Deleted
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            Blog blog = _db.Blogs
+                .FirstOrDefault(c => c.HasDeleted == false && c.Id == id);
+            if (blog == null) return NotFound();
+            return View(blog);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeletePost(int? id)
+        {
+            if (id == null) return NotFound();
+            Blog blog = _db.Blogs
+                .FirstOrDefault(c => c.HasDeleted == false && c.Id == id);
+            if (blog == null) return NotFound();
+            blog.HasDeleted = true;
+
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        #endregion
+
+
     }
 }
