@@ -1,0 +1,74 @@
+﻿@model LatestPostDetail
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Event</h4>
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="@Model.Title">Title</label>
+                    <input asp-for="@Model.Title" class="form-control" placeholder="Title">
+                    <span class="text-danger" asp-validation-for="@Model.Title"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Day">Day</label>
+
+                    <input asp-for="@Model.Day" class="form-control" placeholder="Day">
+                    <span class="text-danger" asp-validation-for="@Model.Day"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.BestDetailesWorkshop.Description">Description</label>
+
+                    <input asp-for="@Model.BestDetailesWorkshop.Description" class="form-control" placeholder="Description">
+                    <span class="text-danger" asp-validation-for="@Model.BestDetailesWorkshop.Description"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Month">Month</label>
+
+                    <input asp-for="@Model.Month" class="form-control" placeholder="Month">
+                    <span class="text-danger" asp-validation-for="@Model.Month"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Date">Date</label>
+
+                    <input asp-for="@Model.Date" class="form-control" placeholder="Date">
+                    <span class="text-danger" asp-validation-for="@Model.Date"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Location">Location</label>
+
+                    <input asp-for="@Model.Location" class="form-control" placeholder="Location">
+                    <span class="text-danger" asp-validation-for="@Model.Location"></span>
+                </div>
+
+
+                <div class="form-group" id="photo">
+                    <label asp-for="@Model.Photo"></label>
+                    <input asp-for="@Model.Photo" class="form-control" placeholder="Select Photo">
+                    <span class="text-danger" asp-validation-for="@Model.Photo"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Update</button>
+                <a class="btn btn-light" asp-action="Index">Cancel</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_Validation" />
+
+
+}
+
+
+
+
+
+
+
+
+

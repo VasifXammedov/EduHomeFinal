@@ -1,0 +1,49 @@
+﻿@model List<LatestPostDetail>
+@{
+    ViewData["Title"] = "Event";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Event</h4>
+            <a asp-controller="Event" asp-action="Create" class="btn btn-success">Create</a>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                LatestPostDetail Title
+                            </th>
+                           
+                            <th>
+                                Settings
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (LatestPostDetail cg in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @cg.Title
+                                </td>
+                                
+                                <td>
+                                    <a asp-controller="Event" asp-action="Detail" asp-route-id="@cg.Id" class="btn btn-success"><i class="mdi mdi-information"></i></a>
+                                    <a asp-controller="Event" asp-action="Update" asp-route-id="@cg.Id" class="btn btn-warning"><i class="mdi mdi-table-edit"></i></a>
+                                    <a asp-controller="Event" asp-action="Delete" asp-route-id="@cg.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                </td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
