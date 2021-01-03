@@ -1,5 +1,7 @@
 ﻿@model AboutVM
-@{ ViewData["Title"] = "Index"; }
+@{ ViewData["Title"] = "Index";
+
+  }
 
 
 <!-- Header Area Start -->
@@ -25,9 +27,6 @@
     </div>
 </header>
 <!-- Header Area End -->
-
-
-
 <!-- Banner Area Start -->
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
@@ -53,7 +52,7 @@
                 <div class="about-content">
                     @Html.Raw(Model.WelcomeToEdus.ElementAt(0).Title)
                     @Html.Raw(Model.WelcomeToEdus.ElementAt(0).Description)
-                    <a class="default-btn" href="#">view courses</a>
+                    <a class="default-btn" asp-controller="Course" asp-action="Index">view courses</a>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">

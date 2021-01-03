@@ -76,7 +76,7 @@
                 <div class="choose-content text-left">
                     <h2>@Model.Choose.Title</h2>
                     @Html.Raw(Model.Choose.Description)
-                    <a class="default-btn" href="~/assets/course-details.html">view courses</a>
+                    <a class="default-btn" asp-controller="Course" asp-action="Index">view courses</a>
                 </div>
             </div>
         </div>
@@ -135,44 +135,46 @@
             <div class="col-md-6 col-sm-12 col-xs-12">
                 @foreach (LatestPostDetail layer1 in Model.LatestPostDetails.Take(4))
                 {
-    <div class="single-event mb-35">
-        <div class="event-date">
-            <h3><a asp-controller="Event" asp-action="Detail">@layer1.Day <span>@layer1.Month</span></a></h3>
-        </div>
-        <div class="event-content text-left">
-            <div class="event-content-left">
-                <h4><a asp-controller="Event" asp-action="Detail">@layer1.Title</a></h4>
-                <ul>
-                    <li><i class="fa fa-clock-o"></i>@layer1.Date</li>
-                    <li><i class="fa fa-map-marker"></i>@layer1.Location</li>
-                </ul>
-            </div>
-            <div class="event-content-right">
-                <a class="default-btn" asp-controller="Event" asp-action="Detail">join now</a>
-            </div>
-        </div>
-    </div>}
+                    <div class="single-event mb-35">
+                        <div class="event-date">
+                            <h3><a asp-controller="Event" asp-action="Detail" asp-route-id="@layer1.Id">@layer1.Day <span>@layer1.Month</span></a></h3>
+                        </div>
+                        <div class="event-content text-left">
+                            <div class="event-content-left">
+                                <h4><a asp-controller="Event" asp-action="Detail" asp-route-id="@layer1.Id">@layer1.Title</a></h4>
+                                <ul>
+                                    <li><i class="fa fa-clock-o"></i>@layer1.Date</li>
+                                    <li><i class="fa fa-map-marker"></i>@layer1.Location</li>
+                                </ul>
+                            </div>
+                            <div class="event-content-right">
+                                <a class="default-btn" asp-controller="Event" asp-action="Detail" asp-route-id="@layer1.Id">join now</a>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
                 @foreach (LatestPostDetail layer2 in Model.LatestPostDetails.Skip(4).Take(4))
                 {
-    <div class="single-event mb-35">
-        <div class="event-date">
-            <h3><a asp-controller="Event" asp-action="Detail">@layer2.Day <span>@layer2.Month</span></a></h3>
-        </div>
-        <div class="event-content text-left">
-            <div class="event-content-left">
-                <h4><a asp-controller="Event" asp-action="Detail">@layer2.Title</a></h4>
-                <ul>
-                    <li><i class="fa fa-clock-o"></i>@layer2.Date</li>
-                    <li><i class="fa fa-map-marker"></i>@layer2.Location</li>
-                </ul>
-            </div>
-            <div class="event-content-right">
-                <a class="default-btn" asp-controller="Event" asp-action="Detail">join now</a>
-            </div>
-        </div>
-    </div>}
+                    <div class="single-event mb-35">
+                        <div class="event-date">
+                            <h3><a asp-controller="Event" asp-action="Detail" asp-route-id="@layer2.Id">@layer2.Day <span>@layer2.Month</span></a></h3>
+                        </div>
+                        <div class="event-content text-left">
+                            <div class="event-content-left">
+                                <h4><a asp-controller="Event" asp-action="Detail" asp-route-id="@layer2.Id">@layer2.Title</a></h4>
+                                <ul>
+                                    <li><i class="fa fa-clock-o"></i>@layer2.Date</li>
+                                    <li><i class="fa fa-map-marker"></i>@layer2.Location</li>
+                                </ul>
+                            </div>
+                            <div class="event-content-right">
+                                <a class="default-btn" asp-controller="Event" asp-action="Detail" asp-route-id="@layer2.Id">join now</a>
+                            </div>
+                        </div>
+                    </div>
+                  }
             </div>
         </div>
     </div>
