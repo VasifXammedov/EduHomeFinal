@@ -141,7 +141,7 @@ namespace EDUHOME.Areas.Admin.Controllers
                 return View(viewEvents);
             }
 
-            string folder = Path.Combine("assets", "img", "teacher");
+            string folder = Path.Combine("assets", "img", "event");
             string fileName = await teacher.Photo.SaveImgAsync(_env.WebRootPath, folder);
             viewEvents.Image = fileName;
             viewEvents.IsDeleted = false;

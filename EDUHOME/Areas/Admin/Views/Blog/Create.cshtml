@@ -1,0 +1,65 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Blog</h4>
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="@Model.Description">Description</label>
+                    <input asp-for="@Model.Description" class="form-control" placeholder="Description">
+                    <span class="text-danger" asp-validation-for="@Model.Description"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CommentsCount">CommentsCount</label>
+                    <input asp-for="@Model.CommentsCount" class="form-control" placeholder="CommentsCount">
+                    <span class="text-danger" asp-validation-for="@Model.CommentsCount"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.BlogDetail.FirstContent">FirstContent</label>
+                    <input asp-for="@Model.BlogDetail.FirstContent" class="form-control" placeholder="FirstContent">
+                    <span class="text-danger" asp-validation-for="@Model.BlogDetail.FirstContent"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.BlogDetail.SecondContent">SecondContent</label>
+                    <input asp-for="@Model.BlogDetail.SecondContent" class="form-control" placeholder="SecondContent">
+                    <span class="text-danger" asp-validation-for="@Model.BlogDetail.SecondContent"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.BlogDetail.FourthContent">FourthContent</label>
+                    <input asp-for="@Model.BlogDetail.FourthContent" class="form-control" placeholder="FourthContent">
+                    <span class="text-danger" asp-validation-for="@Model.BlogDetail.FourthContent"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.BlogDetail.ThirdContent">ThirdContent</label>
+                    <input asp-for="@Model.BlogDetail.ThirdContent" class="form-control" placeholder="ThirdContent">
+                    <span class="text-danger" asp-validation-for="@Model.BlogDetail.ThirdContent"></span>
+                </div>
+
+                <div class="form-group" id="photo">
+                    <label asp-for="@Model.Photo"></label>
+                    <input asp-for="@Model.Photo" class="form-control" placeholder="Select Photo">
+                    <span class="text-danger" asp-validation-for="@Model.Photo"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <a class="btn btn-light" asp-action="Index">Cancel</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_Validation" />
+
+
+}
+
+
+
+
+
+
