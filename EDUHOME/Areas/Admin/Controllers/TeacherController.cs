@@ -118,7 +118,7 @@ namespace EDUHOME.Areas.Admin.Controllers
         public async Task<IActionResult> Update(int? id, Teacher teacher)
         {
             Teacher viewTeacher = _db.Teachers.Include(c => c.TeacherDetail).FirstOrDefault(c => c.Id == id && c.IsDeleted == false);
-            bool isExist = _db.Courses.Where(c => c.HasDeleted == false)
+            bool isExist = _db.Teachers.Where(c => c.IsDeleted == false)
                    .Any(c => c.Name.ToLower() == teacher.Name.ToLower());
             if (isExist)
             {

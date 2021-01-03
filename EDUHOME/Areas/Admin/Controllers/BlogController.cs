@@ -8,6 +8,7 @@ using EDUHOME.Extensions;
 using EDUHOME.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EDUHOME.Areas.Admin.Controllers
 {
@@ -100,6 +101,59 @@ namespace EDUHOME.Areas.Admin.Controllers
         }
 
         #endregion
+
+        #region Update
+
+        public IActionResult Update(int? id)
+        {
+            if (id == null) return NotFound();
+            Blog blog = _db.Blogs
+                .FirstOrDefault(c => c.HasDeleted == false && c.Id == id);
+            if (blog == null) return NotFound();
+            return View(blog);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(int? id, Blog blog)
+        {
+            Blog viewBlog = _db.Blogs.Include(c => c.BlogDetail).FirstOrDefault(c => c.Id == id && c.HasDeleted == false);
+            bool isExist = _db.Blogs.Where(c => c.HasDeleted == false)
+                   .Any(c => c.Description.ToLower() == blog.Description.ToLower());
+            if (isExist)
+            {
+                ModelState.AddModelError("Name", "Bu Mellim artiq movcuddur");
+                return View(viewBlog);
+            }
+            if (blog.Photo == null)
+            {
+                ModelState.AddModelError("", "Ayeee wekili elave ele!!!");
+                return View(viewBlog);
+            }
+            if (!blog.Photo.IsImage())
+            {
+                ModelState.AddModelError("", "Bunu yaratmaq ucun wekil tipi yarat!!!");
+                return View(viewBlog);
+            }
+            if (!blog.Photo.MaxSize(200))
+            {
+                ModelState.AddModelError("", "Wekilin olcusu 200kb-dan az olmalidi!!!");
+                return View(viewBlog);
+            }
+
+            string folder = Path.Combine("assets", "img", "blog");
+            string fileName = await blog.Photo.SaveImgAsync(_env.WebRootPath, folder);
+            blog.Image = fileName;
+            blog.HasDeleted = false;
+            viewBlog.Description = blog.Description;
+
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+
+        #endregion
+
 
 
     }
