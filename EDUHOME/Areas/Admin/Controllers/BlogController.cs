@@ -122,7 +122,7 @@ namespace EDUHOME.Areas.Admin.Controllers
                    .Any(c => c.Description.ToLower() == blog.Description.ToLower());
             if (isExist)
             {
-                ModelState.AddModelError("Name", "Bu Mellim artiq movcuddur");
+                ModelState.AddModelError("Name", "Bu Blog artiq movcuddur");
                 return View(viewBlog);
             }
             if (blog.Photo == null)
@@ -132,7 +132,7 @@ namespace EDUHOME.Areas.Admin.Controllers
             }
             if (!blog.Photo.IsImage())
             {
-                ModelState.AddModelError("", "Bunu yaratmaq ucun wekil tipi yarat!!!");
+                ModelState.AddModelError("", "Blog yaratmaq ucun wekil tipi yarat!!!");
                 return View(viewBlog);
             }
             if (!blog.Photo.MaxSize(200))
