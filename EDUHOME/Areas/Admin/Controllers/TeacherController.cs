@@ -122,7 +122,7 @@ namespace EDUHOME.Areas.Admin.Controllers
                    .Any(c => c.Name.ToLower() == teacher.Name.ToLower());
             if (isExist)
             {
-                ModelState.AddModelError("Name", "Bu kurs artiq movcuddur");
+                ModelState.AddModelError("Name", "Bu Mellim artiq movcuddur");
                 return View(viewTeacher);
             }
             if (teacher.Photo == null)
@@ -132,7 +132,7 @@ namespace EDUHOME.Areas.Admin.Controllers
             }
             if (!teacher.Photo.IsImage())
             {
-                ModelState.AddModelError("", "Kurs yaratmaq ucun wekil tipi yarat!!!");
+                ModelState.AddModelError("", "Bunu yaratmaq ucun wekil tipi yarat!!!");
                 return View(viewTeacher);
             }
             if (!teacher.Photo.MaxSize(200))

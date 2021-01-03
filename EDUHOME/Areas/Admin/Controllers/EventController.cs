@@ -154,6 +154,22 @@ namespace EDUHOME.Areas.Admin.Controllers
 
         #endregion
 
+        #region Detail
+
+
+        public IActionResult Detail(int? id)
+        {
+            if (id == null) return NotFound();
+            LatestPostDetail events = _db.LatestPostDetails
+                .FirstOrDefault(c => c.IsDeleted == false && c.Id == id);
+            if (events == null) return NotFound();
+            return View(events);
+
+        }
+
+        #endregion
+
+
 
 
     }

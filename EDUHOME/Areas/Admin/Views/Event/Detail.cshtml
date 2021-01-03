@@ -1,21 +1,23 @@
-﻿@model Teacher
+﻿@model LatestPostDetail
 @{
     ViewData["Title"] = "Detail";
 }
 
 <div class="col-12">
-    <img src="~/assets/img/teacher/@Model.Image" width="300" />
+    <img src="~/assets/img/event/@Model.Image" width="300" />
 </div>
 <div class="col-md-6 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Name: @Model.Name</h4>
-            <h4 class="card-title">Profesiya: @Model.Profesia</h4>
+            <h4 class="card-title">Name: @Model.Title</h4>
+            <h4 class="card-title">Date: @Model.Day @Model.Month @Model.Date</h4>
         </div>
     </div>
 
 </div>
 <a asp-action="Index" class="btn btn-secondary">Go Back</a>
+
+
 
 
 
