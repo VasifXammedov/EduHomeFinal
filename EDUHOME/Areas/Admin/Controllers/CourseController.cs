@@ -30,14 +30,12 @@ namespace EDUHOME.Areas.Admin.Controllers
             return View(_db.Courses.Where(c => c.HasDeleted == false).OrderByDescending(c => c.Id).ToList());
         }
 
-
+        #region Create
 
         public IActionResult Create()
-        { 
+        {
             return View();
         }
-
-        #region Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -79,6 +77,8 @@ namespace EDUHOME.Areas.Admin.Controllers
 
         #endregion
 
+        #region Deleted
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -87,8 +87,6 @@ namespace EDUHOME.Areas.Admin.Controllers
             if (course == null) return NotFound();
             return View(course);
         }
-
-        #region Deleted
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -107,6 +105,8 @@ namespace EDUHOME.Areas.Admin.Controllers
 
         #endregion
 
+        #region Update
+
         public IActionResult Update(int? id)
         {
             if (id == null) return NotFound();
@@ -115,9 +115,6 @@ namespace EDUHOME.Areas.Admin.Controllers
             if (course == null) return NotFound();
             return View(course);
         }
-
-
-        #region Update
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -159,8 +156,6 @@ namespace EDUHOME.Areas.Admin.Controllers
 
 
         #endregion
-
-
 
         #region Detail
 
