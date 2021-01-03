@@ -161,6 +161,10 @@ namespace EDUHOME.Areas.Admin.Controllers
         #endregion
 
 
+
+        #region Detail
+
+
         public IActionResult Detail(int? id)
         {
             if (id == null) return NotFound();
@@ -170,10 +174,6 @@ namespace EDUHOME.Areas.Admin.Controllers
             return View(course);
 
         }
-
-        #region Detail
-
-
 
         #endregion
 
