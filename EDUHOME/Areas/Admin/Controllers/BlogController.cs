@@ -154,6 +154,20 @@ namespace EDUHOME.Areas.Admin.Controllers
 
         #endregion
 
+        #region Detail
+
+
+        public IActionResult Detail(int? id)
+        {
+            if (id == null) return NotFound();
+            Blog blog = _db.Blogs
+                .FirstOrDefault(c => c.HasDeleted == false && c.Id == id);
+            if (blog == null) return NotFound();
+            return View(blog);
+
+        }
+
+        #endregion
 
 
     }
