@@ -56,7 +56,10 @@ namespace EDUHOME.DAL
                                   .HasOne(a => a.TeacherDetail)
                                   .WithOne(a => a.Teacher)
                                   .HasForeignKey<TeacherDetail>(c => c.TeacherId);
-           
+            //modelBuilder.Entity<Course>()
+            //               .HasOne(b => b.CourseDetailEncineering)
+            //               .WithOne(b => b.Course)
+            //               .HasForeignKey<CourseDetailEncineering>(c => c.CourseId);
         }
        
     }

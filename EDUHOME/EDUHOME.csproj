@@ -154,24 +154,41 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Admin\fonts\et-line.svg" />
-    <None Include="wwwroot\Admin\fonts\fontawesome-webfont3e6e.svg" />
-    <None Include="wwwroot\Admin\fonts\fontawesome-webfont3e6e.woff2" />
-    <None Include="wwwroot\Admin\fonts\glyphicons-halflings-regular.svg" />
-    <None Include="wwwroot\Admin\fonts\glyphicons-halflings-regular.woff2" />
-    <None Include="wwwroot\Admin\fonts\ionicons28b5.svg" />
-    <None Include="wwwroot\Admin\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
-    <None Include="wwwroot\Admin\js\ajax-mail.js" />
-    <None Include="wwwroot\Admin\js\bootstrap.min.js" />
-    <None Include="wwwroot\Admin\js\jquery.magnific-popup.js" />
-    <None Include="wwwroot\Admin\js\jquery.mb.YTPlayer.js" />
-    <None Include="wwwroot\Admin\js\jquery.meanmenu.js" />
-    <None Include="wwwroot\Admin\js\jquery.nicescroll.min.js" />
-    <None Include="wwwroot\Admin\js\main.js" />
-    <None Include="wwwroot\Admin\js\owl.carousel.min.js" />
-    <None Include="wwwroot\Admin\js\plugins.js" />
-    <None Include="wwwroot\Admin\js\vendor\jquery-1.12.0.min.js" />
-    <None Include="wwwroot\Admin\js\vendor\modernizr-2.8.3.min.js" />
+    <None Include="wwwroot\admin\css\maps\style.css.map" />
+    <None Include="wwwroot\admin\fonts\.DS_Store" />
+    <None Include="wwwroot\admin\fonts\Roboto\.DS_Store" />
+    <None Include="wwwroot\admin\fonts\Roboto\Roboto-Black.woff2" />
+    <None Include="wwwroot\admin\fonts\Roboto\Roboto-Bold.woff2" />
+    <None Include="wwwroot\admin\fonts\Roboto\Roboto-Light.woff2" />
+    <None Include="wwwroot\admin\fonts\Roboto\Roboto-Medium.woff2" />
+    <None Include="wwwroot\admin\fonts\Roboto\Roboto-Regular.woff2" />
+    <None Include="wwwroot\admin\images\.DS_Store" />
+    <None Include="wwwroot\admin\images\auth\.DS_Store" />
+    <None Include="wwwroot\admin\images\faces\.DS_Store" />
+    <None Include="wwwroot\admin\images\logo-mini.svg" />
+    <None Include="wwwroot\admin\images\logo.svg" />
+    <None Include="wwwroot\admin\js\.DS_Store" />
+    <None Include="wwwroot\admin\js\chart.js" />
+    <None Include="wwwroot\admin\js\Chart.min.js" />
+    <None Include="wwwroot\admin\js\dashboard.js" />
+    <None Include="wwwroot\admin\js\data-table.js" />
+    <None Include="wwwroot\admin\js\dataTables.bootstrap4.js" />
+    <None Include="wwwroot\admin\js\documentation.js" />
+    <None Include="wwwroot\admin\js\file-upload.js" />
+    <None Include="wwwroot\admin\js\hoverable-collapse.js" />
+    <None Include="wwwroot\admin\js\jquery.dataTables.js" />
+    <None Include="wwwroot\admin\js\off-canvas.js" />
+    <None Include="wwwroot\admin\js\tabs.js" />
+    <None Include="wwwroot\admin\js\template.js" />
+    <None Include="wwwroot\admin\vendors\.DS_Store" />
+    <None Include="wwwroot\admin\vendors\base\bootstrap.min.js.map" />
+    <None Include="wwwroot\admin\vendors\base\vendor.bundle.base.js" />
+    <None Include="wwwroot\admin\vendors\chart.js\Chart.min.js" />
+    <None Include="wwwroot\admin\vendors\datatables.net-bs4\dataTables.bootstrap4.js" />
+    <None Include="wwwroot\admin\vendors\datatables.net\jquery.dataTables.js" />
+    <None Include="wwwroot\admin\vendors\mdi\css\materialdesignicons.min.css.map" />
+    <None Include="wwwroot\admin\vendors\mdi\fonts\materialdesignicons-webfont.svg" />
+    <None Include="wwwroot\admin\vendors\mdi\fonts\materialdesignicons-webfont.woff2" />
   </ItemGroup>
 
 </Project>

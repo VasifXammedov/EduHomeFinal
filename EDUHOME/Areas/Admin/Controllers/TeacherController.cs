@@ -38,7 +38,7 @@ namespace EDUHOME.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Teacher teacher)
         {
-            //if (!ModelState.IsValid) return View();
+            
             bool isExist = _db.Teachers.Where(c => c.IsDeleted == false)
                    .Any(c => c.Name.ToLower() == teacher.Name.ToLower());
             if (isExist)
@@ -118,32 +118,26 @@ namespace EDUHOME.Areas.Admin.Controllers
         public async Task<IActionResult> Update(int? id, Teacher teacher)
         {
             Teacher viewTeacher = _db.Teachers.Include(c => c.TeacherDetail).FirstOrDefault(c => c.Id == id && c.IsDeleted == false);
-            bool isExist = _db.Teachers.Where(c => c.IsDeleted == false)
-                   .Any(c => c.Name.ToLower() == teacher.Name.ToLower());
-            if (isExist)
+           
+            if (teacher.Photo != null)
             {
-                ModelState.AddModelError("Name", "Bu Mellim artiq movcuddur");
-                return View(viewTeacher);
-            }
-            if (teacher.Photo == null)
-            {
-                ModelState.AddModelError("", "Ayeee wekili elave ele!!!");
-                return View(viewTeacher);
-            }
-            if (!teacher.Photo.IsImage())
-            {
-                ModelState.AddModelError("", "Bunu yaratmaq ucun wekil tipi yarat!!!");
-                return View(viewTeacher);
-            }
-            if (!teacher.Photo.MaxSize(200))
-            {
-                ModelState.AddModelError("", "Wekilin olcusu 200kb-dan az olmalidi!!!");
-                return View(viewTeacher);
-            }
+               
+                if (!teacher.Photo.IsImage())
+                {
+                    ModelState.AddModelError("", "Bunu yaratmaq ucun wekil tipi yarat!!!");
+                    return View(viewTeacher);
+                }
+                if (!teacher.Photo.MaxSize(200))
+                {
+                    ModelState.AddModelError("", "Wekilin olcusu 200kb-dan az olmalidi!!!");
+                    return View(viewTeacher);
+                }
 
-            string folder = Path.Combine("assets", "img", "teacher");
-            string fileName = await teacher.Photo.SaveImgAsync(_env.WebRootPath, folder);
-            teacher.Image = fileName;
+                string folder = Path.Combine("assets", "img", "teacher");
+                string fileName = await teacher.Photo.SaveImgAsync(_env.WebRootPath, folder);
+                teacher.Image = fileName;
+            }
+           
             teacher.IsDeleted = false;
             viewTeacher.Name = teacher.Name;
 

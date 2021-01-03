@@ -121,32 +121,25 @@ namespace EDUHOME.Areas.Admin.Controllers
         public async Task<IActionResult> Update(int? id, Course course)
         {
             Course viewCourse = _db.Courses.Include(c => c.CourseDetail).FirstOrDefault(c => c.Id == id && c.HasDeleted == false);
-            bool isExist = _db.Courses.Where(c => c.HasDeleted == false)
-                   .Any(c => c.Name.ToLower() == course.Name.ToLower());
-            if (isExist)
+           
+            if (course.Photo != null)
             {
-                ModelState.AddModelError("Name", "Bu kurs artiq movcuddur");
-                return View(viewCourse);
-            }
-            if (course.Photo == null)
-            {
-                ModelState.AddModelError("", "Ayeee wekili elave ele!!!");
-                return View(viewCourse);
-            }
-            if (!course.Photo.IsImage())
-            {
-                ModelState.AddModelError("", "Kurs yaratmaq ucun wekil tipi yarat!!!");
-                return View(viewCourse);
-            }
-            if (!course.Photo.MaxSize(200))
-            {
-                ModelState.AddModelError("", "Wekilin olcusu 200kb-dan az olmalidi!!!");
-                return View(viewCourse);
-            }
+                if (!course.Photo.IsImage())
+                {
+                    ModelState.AddModelError("", "Kurs yaratmaq ucun wekil tipi yarat!!!");
+                    return View(viewCourse);
+                }
+                if (!course.Photo.MaxSize(200))
+                {
+                    ModelState.AddModelError("", "Wekilin olcusu 200kb-dan az olmalidi!!!");
+                    return View(viewCourse);
+                }
 
-            string folder = Path.Combine("assets", "img", "course");
-            string fileName = await course.Photo.SaveImgAsync(_env.WebRootPath, folder);
-            course.Image = fileName;
+                string folder = Path.Combine("assets", "img", "course");
+                string fileName = await course.Photo.SaveImgAsync(_env.WebRootPath, folder);
+                course.Image = fileName;
+            }
+           
             course.HasDeleted = false;
             viewCourse.Name = course.Name;
 

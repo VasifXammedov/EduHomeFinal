@@ -13,9 +13,12 @@
                     <thead>
                         <tr>
                             <th>
+                                LatestPostDetail Photo
+                            </th>
+                            <th>
                                 LatestPostDetail Title
                             </th>
-                           
+
                             <th>
                                 Settings
                             </th>
@@ -24,17 +27,20 @@
                     <tbody>
                         @foreach (LatestPostDetail cg in Model)
                         {
-                            <tr>
-                                <td>
-                                    @cg.Title
-                                </td>
-                                
-                                <td>
-                                    <a asp-controller="Event" asp-action="Detail" asp-route-id="@cg.Id" class="btn btn-success"><i class="mdi mdi-information"></i></a>
-                                    <a asp-controller="Event" asp-action="Update" asp-route-id="@cg.Id" class="btn btn-warning"><i class="mdi mdi-table-edit"></i></a>
-                                    <a asp-controller="Event" asp-action="Delete" asp-route-id="@cg.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>
+                                <img src="~/assets/img/event/@cg.Image" />
+                            </td>
+                            <td>
+                                @cg.Title
+                            </td>
+
+                            <td>
+                                <a asp-controller="Event" asp-action="Detail" asp-route-id="@cg.Id" class="btn btn-success"><i class="mdi mdi-information"></i></a>
+                                <a asp-controller="Event" asp-action="Update" asp-route-id="@cg.Id" class="btn btn-warning"><i class="mdi mdi-table-edit"></i></a>
+                                <a asp-controller="Event" asp-action="Delete" asp-route-id="@cg.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                            </td>
+                        </tr>
 
                         }
 

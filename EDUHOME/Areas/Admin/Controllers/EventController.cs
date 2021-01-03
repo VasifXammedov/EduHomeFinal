@@ -115,37 +115,30 @@ namespace EDUHOME.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int? id, Teacher teacher)
+        public async Task<IActionResult> Update(int? id, LatestPostDetail events)
         {
             LatestPostDetail viewEvents = _db.LatestPostDetails.Include(c => c.BestDetailesWorkshop).FirstOrDefault(c => c.Id == id && c.IsDeleted == false);
-            bool isExist = _db.LatestPostDetails.Where(c => c.IsDeleted == false)
-                   .Any(c => c.Title.ToLower() == viewEvents.Title.ToLower());
-            if (isExist)
+           
+            if (events.Photo != null)
             {
-                ModelState.AddModelError("Name", "Bu event artiq movcuddur");
-                return View(viewEvents);
-            }
-            if (teacher.Photo == null)
-            {
-                ModelState.AddModelError("", "Ayeee wekili elave ele!!!");
-                return View(viewEvents);
-            }
-            if (!teacher.Photo.IsImage())
-            {
-                ModelState.AddModelError("", "Event yaratmaq ucun wekil tipi yarat!!!");
-                return View(viewEvents);
-            }
-            if (!teacher.Photo.MaxSize(200))
-            {
-                ModelState.AddModelError("", "Wekilin olcusu 200kb-dan az olmalidi!!!");
-                return View(viewEvents);
-            }
+                if (!events.Photo.IsImage())
+                {
+                    ModelState.AddModelError("", "Event yaratmaq ucun wekil tipi yarat!!!");
+                    return View(viewEvents);
+                }
+                if (!events.Photo.MaxSize(200))
+                {
+                    ModelState.AddModelError("", "Wekilin olcusu 200kb-dan az olmalidi!!!");
+                    return View(viewEvents);
+                }
 
-            string folder = Path.Combine("assets", "img", "event");
-            string fileName = await teacher.Photo.SaveImgAsync(_env.WebRootPath, folder);
-            viewEvents.Image = fileName;
+                string folder = Path.Combine("assets", "img", "event");
+                string fileName = await events.Photo.SaveImgAsync(_env.WebRootPath, folder);
+                viewEvents.Image = fileName;
+            }
+           
             viewEvents.IsDeleted = false;
-            viewEvents.Title = viewEvents.Title;
+            viewEvents.Title = events.Title;
 
             await _db.SaveChangesAsync();
             return RedirectToAction("Index");

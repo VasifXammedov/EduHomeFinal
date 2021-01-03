@@ -13,6 +13,9 @@
                     <thead>
                         <tr>
                             <th>
+                                Course Photo
+                            </th>
+                            <th>
                                 Course Name
                             </th>
                             <th>
@@ -23,17 +26,20 @@
                     <tbody>
                         @foreach (Course cg in Model)
                         {
-                            <tr>
-                                <td>
-                                    @cg.Name
-                                </td>
-                                
-                                <td>
-                                    <a asp-controller="Course" asp-action="Detail" asp-route-id="@cg.Id" class="btn btn-success"><i class="mdi mdi-information"></i></a>
-                                    <a asp-controller="Course" asp-action="Update" asp-route-id="@cg.Id" class="btn btn-warning"><i class="mdi mdi-table-edit"></i></a>
-                                    <a asp-controller="Course" asp-action="Delete" asp-route-id="@cg.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>
+                                <img src="~/assets/img/course/@cg.Image" />
+                            </td>
+                            <td>
+                                @cg.Name
+                            </td>
+
+                            <td>
+                                <a asp-controller="Course" asp-action="Detail" asp-route-id="@cg.Id" class="btn btn-success"><i class="mdi mdi-information"></i></a>
+                                <a asp-controller="Course" asp-action="Update" asp-route-id="@cg.Id" class="btn btn-warning"><i class="mdi mdi-table-edit"></i></a>
+                                <a asp-controller="Course" asp-action="Delete" asp-route-id="@cg.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                            </td>
+                        </tr>
 
                         }
 

@@ -315,7 +315,6 @@ namespace EDUHOME.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DetailedImage")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstContent")
@@ -527,14 +526,12 @@ namespace EDUHOME.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Language")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SkillLevel")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StudentsCount")

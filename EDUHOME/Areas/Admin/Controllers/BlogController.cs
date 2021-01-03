@@ -118,32 +118,25 @@ namespace EDUHOME.Areas.Admin.Controllers
         public async Task<IActionResult> Update(int? id, Blog blog)
         {
             Blog viewBlog = _db.Blogs.Include(c => c.BlogDetail).FirstOrDefault(c => c.Id == id && c.HasDeleted == false);
-            bool isExist = _db.Blogs.Where(c => c.HasDeleted == false)
-                   .Any(c => c.Description.ToLower() == blog.Description.ToLower());
-            if (isExist)
+           
+            if (blog.Photo != null)
             {
-                ModelState.AddModelError("Name", "Bu Blog artiq movcuddur");
-                return View(viewBlog);
-            }
-            if (blog.Photo == null)
-            {
-                ModelState.AddModelError("", "Ayeee wekili elave ele!!!");
-                return View(viewBlog);
-            }
-            if (!blog.Photo.IsImage())
-            {
-                ModelState.AddModelError("", "Blog yaratmaq ucun wekil tipi yarat!!!");
-                return View(viewBlog);
-            }
-            if (!blog.Photo.MaxSize(200))
-            {
-                ModelState.AddModelError("", "Wekilin olcusu 200kb-dan az olmalidi!!!");
-                return View(viewBlog);
-            }
+                if (!blog.Photo.IsImage())
+                {
+                    ModelState.AddModelError("", "Blog yaratmaq ucun wekil tipi yarat!!!");
+                    return View(viewBlog);
+                }
+                if (!blog.Photo.MaxSize(200))
+                {
+                    ModelState.AddModelError("", "Wekilin olcusu 200kb-dan az olmalidi!!!");
+                    return View(viewBlog);
+                }
 
-            string folder = Path.Combine("assets", "img", "blog");
-            string fileName = await blog.Photo.SaveImgAsync(_env.WebRootPath, folder);
-            blog.Image = fileName;
+                string folder = Path.Combine("assets", "img", "blog");
+                string fileName = await blog.Photo.SaveImgAsync(_env.WebRootPath, folder);
+                blog.Image = fileName;
+            }
+           
             blog.HasDeleted = false;
             viewBlog.Description = blog.Description;
 

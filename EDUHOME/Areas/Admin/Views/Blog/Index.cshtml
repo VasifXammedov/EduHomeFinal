@@ -13,6 +13,9 @@
                     <thead>
                         <tr>
                             <th>
+                                Blog Photo
+                            </th>
+                            <th>
                                 Blog Description
                             </th>
                             <th>
@@ -26,19 +29,22 @@
                     <tbody>
                         @foreach (Blog cg in Model)
                         {
-                            <tr>
-                                <td>
-                                    @cg.Description
-                                </td>
-                                <td>
-                                    @cg.CommentsCount
-                                </td>
-                                <td>
-                                    <a asp-controller="Blog" asp-action="Detail" asp-route-id="@cg.Id" class="btn btn-success"><i class="mdi mdi-information"></i></a>
-                                    <a asp-controller="Blog" asp-action="Update" asp-route-id="@cg.Id" class="btn btn-warning"><i class="mdi mdi-table-edit"></i></a>
-                                    <a asp-controller="Blog" asp-action="Delete" asp-route-id="@cg.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>
+                                <img src="~/assets/img/blog/@cg.Image" />
+                            </td>
+                            <td>
+                                @cg.Description
+                            </td>
+                            <td>
+                                @cg.CommentsCount
+                            </td>
+                            <td>
+                                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@cg.Id" class="btn btn-success"><i class="mdi mdi-information"></i></a>
+                                <a asp-controller="Blog" asp-action="Update" asp-route-id="@cg.Id" class="btn btn-warning"><i class="mdi mdi-table-edit"></i></a>
+                                <a asp-controller="Blog" asp-action="Delete" asp-route-id="@cg.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                            </td>
+                        </tr>
 
                         }
 

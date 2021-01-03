@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,11 +13,12 @@ namespace EDUHOME.Models
         public int Id { get; set; }
         [Required]
         public string Image { get; set; }
+       
         public string Name { get; set; }
         public string Profesiya { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime? DeletedTime { get; set; }
-       
+
         [ForeignKey("TeacherId")]
         public int TeacherId { get; set; }
         public Teacher Teacher { get; set; }

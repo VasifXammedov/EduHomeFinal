@@ -37,8 +37,8 @@ namespace EDUHOME.Controllers
             TeacherDetailsVM teacherDetailsVM = new TeacherDetailsVM
             {
                 //TeacherDetails = _db.TeacherDetails.Where(t => t.IsDeleted == false && t.Id == id).Include(t => t.Teacher).ToList(),
-                Teacher =_db.Teachers.Where(t=>t.IsDeleted==false).Include(t=>t.TeacherDetail).FirstOrDefault(t=>t.Id == id),
-                KamranTeacherDetail=_db.KamranTeacherDetails.Where(k=>k.IsDeleted==false).FirstOrDefault(),
+                Teacher = _db.Teachers.Where(t => t.IsDeleted == false).Include(t => t.TeacherDetail).FirstOrDefault(t => t.Id == id),
+                KamranTeacherDetail = _db.KamranTeacherDetails.Where(k=>k.IsDeleted==false).FirstOrDefault(),
                 ContactTeacherDetail=_db.ContactTeacherDetails.Where(con=>con.IsDeleted==false).FirstOrDefault(),
                 SkillsTeacherDetails=_db.SkillsTeacherDetails.Where(s=>s.IsDeleted==false).ToList()
 

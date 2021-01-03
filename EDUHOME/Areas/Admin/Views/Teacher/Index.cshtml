@@ -13,10 +13,13 @@
                     <thead>
                         <tr>
                             <th>
+                                Teacher Photo
+                            </th>
+                            <th>
                                 Teacher Name
                             </th>
                             <th>
-                                Teacher Profesia
+                                Teacher Profesiya
                             </th>
                             <th>
                                 Settings
@@ -27,6 +30,9 @@
                         @foreach (Teacher cg in Model)
                         {
                         <tr>
+                            <td>
+                                <img src="~/assets/img/teacher/@cg.Image"/>
+                            </td>
                             <td>
                                 @cg.Name
                             </td>

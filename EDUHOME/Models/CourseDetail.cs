@@ -13,12 +13,10 @@ namespace EDUHOME.Models
 
         public string Duration { get; set; }
         public string Price { get; set; }
-        [Required]
         public string Language { get; set; }
         public string StudentsPerGroup { get; set; }
         public string StudentsCount { get; set; }
         public string ClassDuration { get; set; }
-        [Required]
         public string SkillLevel { get; set; }
         public string Content { get; set; }
         public string About { get; set; }
