@@ -33,11 +33,9 @@ namespace EDUHOME.DAL
         public DbSet<Map> Maps { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Message> Messages { get; set; }
-        
         public DbSet<Categories> Categories { get; set; }
         public DbSet<LatestPostDetail> LatestPostDetails { get; set; }
         public DbSet<TagsDetail> TagsDetails { get; set; }
-       
         public DbSet<BestDetailesWorkshop> BestDetailesWorkshops { get; set; }
         public DbSet<SpeakerBest> SpeakerBests { get; set; }
         public DbSet<KamranTeacherDetail> KamranTeacherDetails { get; set; }
@@ -58,14 +56,9 @@ namespace EDUHOME.DAL
                                   .HasOne(a => a.TeacherDetail)
                                   .WithOne(a => a.Teacher)
                                   .HasForeignKey<TeacherDetail>(c => c.TeacherId);
-            //modelBuilder.Entity<Course>()
-            //               .HasOne(b => b.CourseDetailEncineering)
-            //               .WithOne(b => b.Course)
-            //               .HasForeignKey<CourseDetailEncineering>(c => c.CourseId);
+           
         }
        
-
-
     }
 
 }
