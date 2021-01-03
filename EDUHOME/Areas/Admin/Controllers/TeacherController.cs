@@ -83,6 +83,7 @@ namespace EDUHOME.Areas.Admin.Controllers
             return View(teacher);
         }
 
+
         #region Deleted
 
         [HttpPost]
@@ -101,6 +102,15 @@ namespace EDUHOME.Areas.Admin.Controllers
         }
 
         #endregion
+
+        public IActionResult Update(int? id)
+        {
+            if (id == null) return NotFound();
+            Course course = _db.Courses
+                .FirstOrDefault(c => c.HasDeleted == false && c.Id == id);
+            if (course == null) return NotFound();
+            return View(course);
+        }
 
     }
 }
