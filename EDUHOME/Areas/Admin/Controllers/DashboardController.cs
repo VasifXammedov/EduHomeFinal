@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EDUHOME.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize("Admin")]
+    //[Authorize(Roles = "Admin")]
     public class DashboardController : Controller
     {
         public IActionResult Index()

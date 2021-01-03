@@ -1,0 +1,97 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Course</h4>
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="@Model.Name">Name</label>
+                    <input asp-for="@Model.Name" class="form-control" placeholder="Name">
+                    <span class="text-danger" asp-validation-for="@Model.Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Description">Description</label>
+
+                    <input asp-for="@Model.Description" class="form-control" placeholder="Description">
+                    <span class="text-danger" asp-validation-for="@Model.Description"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CourseDetail.Duration">Duration</label>
+                    <input asp-for="@Model.CourseDetail.Duration" class="form-control" placeholder="Duration">
+                    <span class="text-danger" asp-validation-for="@Model.CourseDetail.Duration"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CourseDetail.Price">Price</label>
+                    <input asp-for="@Model.CourseDetail.Price" class="form-control" placeholder="Price">
+                    <span class="text-danger" asp-validation-for="@Model.CourseDetail.Price"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CourseDetail.Language">Language</label>
+                    <input asp-for="@Model.CourseDetail.Language" class="form-control" placeholder="Language">
+                    <span class="text-danger" asp-validation-for="@Model.CourseDetail.Language"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CourseDetail.StudentsPerGroup">StudentsPerGroup</label>
+                    <input asp-for="@Model.CourseDetail.StudentsPerGroup" class="form-control" placeholder="StudentsPerGroup">
+                    <span class="text-danger" asp-validation-for="@Model.CourseDetail.StudentsPerGroup"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CourseDetail.StudentsCount">StudentsCount</label>
+                    <input asp-for="@Model.CourseDetail.StudentsCount" class="form-control" placeholder="StudentsCount">
+                    <span class="text-danger" asp-validation-for="@Model.CourseDetail.StudentsCount"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CourseDetail.ClassDuration">ClassDuration</label>
+                    <input asp-for="@Model.CourseDetail.ClassDuration" class="form-control" placeholder="ClassDuration">
+                    <span class="text-danger" asp-validation-for="@Model.CourseDetail.ClassDuration"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CourseDetail.SkillLevel">SkillLevel</label>
+                    <input asp-for="@Model.CourseDetail.SkillLevel" class="form-control" placeholder="SkillLevel">
+                    <span class="text-danger" asp-validation-for="@Model.CourseDetail.SkillLevel"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CourseDetail.Content">Content</label>
+                    <input asp-for="@Model.CourseDetail.Content" class="form-control" placeholder="Content">
+                    <span class="text-danger" asp-validation-for="@Model.CourseDetail.Content"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CourseDetail.About">About</label>
+                    <input asp-for="@Model.CourseDetail.About" class="form-control" placeholder="About">
+                    <span class="text-danger" asp-validation-for="@Model.CourseDetail.About"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CourseDetail.AboutApply">AboutApply</label>
+                    <input asp-for="@Model.CourseDetail.AboutApply" class="form-control" placeholder="AboutApply">
+                    <span class="text-danger" asp-validation-for="@Model.CourseDetail.AboutApply"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CourseDetail.AboutCertification">AboutCertification</label>
+                    <input asp-for="@Model.CourseDetail.AboutCertification" class="form-control" placeholder="AboutCertification">
+                    <span class="text-danger" asp-validation-for="@Model.CourseDetail.AboutCertification"></span>
+                </div>
+
+                <div class="form-group" id="photo">
+                    <label asp-for="@Model.Photo"></label>
+                    <input asp-for="@Model.Photo" class="form-control" placeholder="Select Photo">
+                    <span class="text-danger" asp-validation-for="@Model.Photo"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <a class="btn btn-light" asp-action="Index">Cancel</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_Validation" />
+    
+
+}
+
+
