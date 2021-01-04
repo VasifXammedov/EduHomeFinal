@@ -1030,3 +1030,8 @@ C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\WelcomeToEdus\Details.cshtml.g.cs
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\WelcomeToEdus\Edit.cshtml.g.cs
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\WelcomeToEdus\Index.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SpeakerBests\Create.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SpeakerBests\Delete.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SpeakerBests\Details.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SpeakerBests\Edit.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SpeakerBests\Index.cshtml.g.cs
