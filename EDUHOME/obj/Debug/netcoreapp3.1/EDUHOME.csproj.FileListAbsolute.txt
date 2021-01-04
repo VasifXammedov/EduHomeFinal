@@ -1050,3 +1050,8 @@ C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutVideos\Details.cshtml.g.cs
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutVideos\Edit.cshtml.g.cs
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutVideos\Index.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\TagsDetails\Create.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\TagsDetails\Delete.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\TagsDetails\Details.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\TagsDetails\Edit.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\TagsDetails\Index.cshtml.g.cs
