@@ -17,6 +17,9 @@ namespace EDUHOME.Controllers
         {
             _db = db;
         }
+
+        #region Blog Page
+
         public IActionResult Index(int? page)
         {
             ViewBag.PageCount = Decimal.Ceiling((decimal)_db.Blogs.Where(b => b.HasDeleted == false).Count() / 3);
@@ -34,15 +37,14 @@ namespace EDUHOME.Controllers
 
 
         }
-        
-       
+
+        #endregion
+
 
         public IActionResult Detail(int? id)
         {
             BlogDetailesVM blogDetailesVM = new BlogDetailesVM
             {
-               
-
                 Blog=_db.Blogs.Where(b=>b.HasDeleted==false&&b.Id==id).Include(b=>b.BlogDetail).FirstOrDefault(),
                 Message = _db.Messages.Where(me => me.IsDeleted == false).FirstOrDefault(),
                 TagsDetails = _db.TagsDetails.Where(t => t.IsDeleted == false).ToList(),

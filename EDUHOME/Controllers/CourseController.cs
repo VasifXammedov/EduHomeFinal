@@ -17,7 +17,10 @@ namespace EDUHOME.Controllers
         {
             _db = db;
         }
-        public  IActionResult Index(int? page)
+
+        #region Course Page
+
+        public IActionResult Index(int? page)
         {
 
             ViewBag.PageCount = Decimal.Ceiling((decimal)_db.Courses.Where(b => b.HasDeleted == false).Count() / 3);
@@ -33,12 +36,13 @@ namespace EDUHOME.Controllers
             //return View(courses);
         }
 
+        #endregion
+
+
         public IActionResult Detail(int? id)
         {
             CourseDetail courseDetail = _db.CourseDetails.Include(d=>d.Course).FirstOrDefault(c => c.CourseId == id);
-            
-
-
+          
             return View(courseDetail);
         }
     }

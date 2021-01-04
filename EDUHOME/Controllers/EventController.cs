@@ -17,6 +17,9 @@ namespace EDUHOME.Controllers
         {
             _db = db;
         }
+
+        #region Event Page
+
         public IActionResult Index(int? page)
         {
             ViewBag.PageCount = Decimal.Ceiling((decimal)_db.LatestPostDetails.Where(b => b.IsDeleted == false).Count() / 3);
@@ -32,10 +35,13 @@ namespace EDUHOME.Controllers
             List<LatestPostDetail> blogDetails = _db.LatestPostDetails.Where(b => b.IsDeleted == false).ToList();
             return View(blogDetails);
         }
+
+
+        #endregion
+
+
         public IActionResult Detail(int? id)
         {
-
-            
             EventDetailesVM eventDetailesVM = new EventDetailesVM
             {
                 LatestPostDetail= _db.LatestPostDetails.Where(l=>l.IsDeleted==false&& l.Id == id).Include(l=>l.BestDetailesWorkshop).FirstOrDefault(),

@@ -17,6 +17,9 @@ namespace EDUHOME.Controllers
         {
             _db = db;
         }
+
+        #region Teacher Page
+
         public IActionResult Index(int? page)
         {
             ViewBag.PageCount = Decimal.Ceiling((decimal)_db.TeacherDetails.Where(b => b.IsDeleted == false).Count() / 4);
@@ -26,24 +29,22 @@ namespace EDUHOME.Controllers
                 List<TeacherDetail> teacherDetail = _db.TeacherDetails.Where(b => b.IsDeleted == false).Take(4).ToList();
                 return View(teacherDetail);
             }
-            List<TeacherDetail> teacherDetails = _db.TeacherDetails.Where(b => b.IsDeleted == false).Skip((int)(page-1)*4).Take(4).ToList();
+            List<TeacherDetail> teacherDetails = _db.TeacherDetails.Where(b => b.IsDeleted == false).Skip((int)(page - 1) * 4).Take(4).ToList();
             return View(teacherDetails);
         }
 
+
+        #endregion
+
         public IActionResult Detail(int? id)
         {
-            //List<TeacherDetail> teacherDetails = _db.TeacherDetails.Where(t => t.IsDeleted == false && t.Id == id).ToList();
-
             TeacherDetailsVM teacherDetailsVM = new TeacherDetailsVM
             {
-                //TeacherDetails = _db.TeacherDetails.Where(t => t.IsDeleted == false && t.Id == id).Include(t => t.Teacher).ToList(),
                 Teacher = _db.Teachers.Where(t => t.IsDeleted == false).Include(t => t.TeacherDetail).FirstOrDefault(t => t.Id == id),
                 KamranTeacherDetail = _db.KamranTeacherDetails.Where(k=>k.IsDeleted==false).FirstOrDefault(),
                 ContactTeacherDetail=_db.ContactTeacherDetails.Where(con=>con.IsDeleted==false).FirstOrDefault(),
                 SkillsTeacherDetails=_db.SkillsTeacherDetails.Where(s=>s.IsDeleted==false).ToList()
-
             };
-
             return View(teacherDetailsVM);
         }
         
