@@ -1040,3 +1040,13 @@ C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutCarousels\Details.cshtml.g.cs
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutCarousels\Edit.cshtml.g.cs
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutCarousels\Index.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutNotices\Create.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutNotices\Delete.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutNotices\Details.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutNotices\Edit.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutNotices\Index.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutVideos\Create.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutVideos\Delete.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutVideos\Details.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutVideos\Edit.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutVideos\Index.cshtml.g.cs
