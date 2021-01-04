@@ -26,6 +26,9 @@ namespace EDUHOME.Areas.Admin.Controllers
             return View(await _context.SpeakerBests.ToListAsync());
         }
 
+
+        #region Details
+
         // GET: Admin/SpeakerBests/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -43,6 +46,10 @@ namespace EDUHOME.Areas.Admin.Controllers
 
             return View(speakerBest);
         }
+
+        #endregion
+
+        #region Create
 
         // GET: Admin/SpeakerBests/Create
         public IActionResult Create()
@@ -65,6 +72,10 @@ namespace EDUHOME.Areas.Admin.Controllers
             }
             return View(speakerBest);
         }
+
+        #endregion
+
+        #region Edit
 
         // GET: Admin/SpeakerBests/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -117,6 +128,11 @@ namespace EDUHOME.Areas.Admin.Controllers
             return View(speakerBest);
         }
 
+
+        #endregion
+
+        #region Delete
+
         // GET: Admin/SpeakerBests/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -150,5 +166,8 @@ namespace EDUHOME.Areas.Admin.Controllers
         {
             return _context.SpeakerBests.Any(e => e.Id == id);
         }
+
+        #endregion
+
     }
 }

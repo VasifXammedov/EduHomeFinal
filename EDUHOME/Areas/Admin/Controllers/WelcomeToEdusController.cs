@@ -26,6 +26,8 @@ namespace EDUHOME.Areas.Admin.Controllers
             return View(await _context.WelcomeToEdus.ToListAsync());
         }
 
+        #region Details
+
         // GET: Admin/WelcomeToEdus/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -43,6 +45,10 @@ namespace EDUHOME.Areas.Admin.Controllers
 
             return View(welcomeToEdu);
         }
+
+        #endregion
+
+        #region Create
 
         // GET: Admin/WelcomeToEdus/Create
         public IActionResult Create()
@@ -65,6 +71,10 @@ namespace EDUHOME.Areas.Admin.Controllers
             }
             return View(welcomeToEdu);
         }
+
+        #endregion
+
+        #region Edit
 
         // GET: Admin/WelcomeToEdus/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -117,6 +127,10 @@ namespace EDUHOME.Areas.Admin.Controllers
             return View(welcomeToEdu);
         }
 
+        #endregion
+
+        #region Delete
+
         // GET: Admin/WelcomeToEdus/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -150,5 +164,8 @@ namespace EDUHOME.Areas.Admin.Controllers
         {
             return _context.WelcomeToEdus.Any(e => e.Id == id);
         }
+
+        #endregion
+
     }
 }

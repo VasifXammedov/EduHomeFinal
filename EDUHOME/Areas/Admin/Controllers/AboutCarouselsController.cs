@@ -26,6 +26,9 @@ namespace EDUHOME.Areas.Admin.Controllers
             return View(await _context.AboutCarousels.ToListAsync());
         }
 
+
+        #region Detail
+
         // GET: Admin/AboutCarousels/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -43,6 +46,10 @@ namespace EDUHOME.Areas.Admin.Controllers
 
             return View(aboutCarousel);
         }
+
+        #endregion
+
+        #region Create
 
         // GET: Admin/AboutCarousels/Create
         public IActionResult Create()
@@ -65,6 +72,11 @@ namespace EDUHOME.Areas.Admin.Controllers
             }
             return View(aboutCarousel);
         }
+
+
+        #endregion
+
+        #region Edit
 
         // GET: Admin/AboutCarousels/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -117,6 +129,10 @@ namespace EDUHOME.Areas.Admin.Controllers
             return View(aboutCarousel);
         }
 
+        #endregion
+
+        #region Delete
+
         // GET: Admin/AboutCarousels/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -150,5 +166,8 @@ namespace EDUHOME.Areas.Admin.Controllers
         {
             return _context.AboutCarousels.Any(e => e.Id == id);
         }
+
+        #endregion
+
     }
 }

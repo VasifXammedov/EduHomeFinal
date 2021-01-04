@@ -26,6 +26,9 @@ namespace EDUHOME.Areas.Admin.Controllers
             return View(await _context.Professions.ToListAsync());
         }
 
+
+        #region Details
+
         // GET: Admin/Professions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -43,6 +46,10 @@ namespace EDUHOME.Areas.Admin.Controllers
 
             return View(profession);
         }
+
+        #endregion
+
+        #region Create
 
         // GET: Admin/Professions/Create
         public IActionResult Create()
@@ -65,6 +72,10 @@ namespace EDUHOME.Areas.Admin.Controllers
             }
             return View(profession);
         }
+
+        #endregion
+
+        #region Edit
 
         // GET: Admin/Professions/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -117,6 +128,11 @@ namespace EDUHOME.Areas.Admin.Controllers
             return View(profession);
         }
 
+
+        #endregion
+
+        #region Delete
+
         // GET: Admin/Professions/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -150,5 +166,8 @@ namespace EDUHOME.Areas.Admin.Controllers
         {
             return _context.Professions.Any(e => e.Id == id);
         }
+
+        #endregion
+
     }
 }

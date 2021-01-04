@@ -25,6 +25,8 @@ namespace EDUHOME.Areas.Admin.Controllers
         {
             return View(await _context.Chooses.ToListAsync());
         }
+
+
         #region Detail
 
         // GET: Admin/Chooses/Details/5
