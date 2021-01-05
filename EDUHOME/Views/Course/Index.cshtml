@@ -51,9 +51,11 @@
                     <h3>search courses</h3>
                 </div>
                 <div class="course-form">
-                    <form id="search" action="#">
-                        <input type="search" placeholder="Search..." name="search" />
+                   
+                    <form id="search" method="get" asp-action="Index">
+                        <input type="search" id="searce-input" value="@ViewData["GetCourses"]" name="searchString" />
                         <button type="submit">search</button>
+                        <a class="reply-btn btn-success" asp-action="Index">Remove Results</a>
                     </form>
                 </div>
             </div>

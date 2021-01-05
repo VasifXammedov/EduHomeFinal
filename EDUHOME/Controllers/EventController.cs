@@ -39,19 +39,23 @@ namespace EDUHOME.Controllers
 
         #endregion
 
+        #region Detail
 
         public IActionResult Detail(int? id)
         {
             EventDetailesVM eventDetailesVM = new EventDetailesVM
             {
-                LatestPostDetail= _db.LatestPostDetails.Where(l=>l.IsDeleted==false&& l.Id == id).Include(l=>l.BestDetailesWorkshop).FirstOrDefault(),
+                LatestPostDetail = _db.LatestPostDetails.Where(l => l.IsDeleted == false && l.Id == id).Include(l => l.BestDetailesWorkshop).FirstOrDefault(),
                 Message = _db.Messages.Where(me => me.IsDeleted == false).FirstOrDefault(),
                 Categories = _db.Categories.Where(cat => cat.IsDeleted).ToList(),
-                BestDetailesWorkshops =_db.BestDetailesWorkshops.Where(b=>b.IsDeleted==false).ToList(),
-                SpeakerBests=_db.SpeakerBests.Where(s=>s.IsDeleted==false).ToList()
+                BestDetailesWorkshops = _db.BestDetailesWorkshops.Where(b => b.IsDeleted == false).ToList(),
+                SpeakerBests = _db.SpeakerBests.Where(s => s.IsDeleted == false).ToList()
             };
 
             return View(eventDetailesVM);
         }
+
+        #endregion
+
     }
 }

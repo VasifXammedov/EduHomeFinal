@@ -41,62 +41,78 @@
 </div>
 <!-- Banner Area End -->
 <!-- Event Start -->
-<div class="event-area three text-center pt-150 pb-150">
-    <div class="container">
-        <div class="row">
-            @foreach (LatestPostDetail lat in Model)
-            {
-<div class="col-md-4 col-sm-6 col-xs-12">
-    <div class="single-event mb-60">
-        <div class="event-img">
-            <a asp-controller="Event" asp-action="Detail" asp-route-id="@lat.Id">
-                <img src="~/assets/img/event/@lat.Image" alt="event">
-                <div class="course-hover">
-                    <i class="fa fa-link"></i>
-                </div>
-            </a>
-            <div class="event-date">
-                <h3>@lat.Day <span>@lat.Month</span></h3>
-            </div>
-        </div>
-        <div class="event-content text-left">
-            <h4><a asp-controller="Event" asp-action="Detail" asp-route-id="@lat.Id">@lat.Title</a></h4>
-            <ul>
-                <li><span>time:</span> @lat.Date</li>
-                <li><span>venue</span> @lat.Location</li>
-            </ul>
-            <div class="event-content-right">
-                <a class="default-btn" asp-controller="Event" asp-action="Detail" asp-route-id="@lat.Id">join now</a>
-            </div>
-        </div>
-    </div>
-</div>      }
-        </div>
-    </div>
-</div>
-<div class="row text-center">
-    <nav aria-label="...">
-        <ul class="pagination pagination-lg">
-            @for (int i = 1; i <= ViewBag.PageCount; i++)
-            {
-                if (i == ViewBag.page)
-                {
-<li class="page-item active" aria-current="page">
-    <span class="page-link">@i</span>
-</li>
- }
-else
-{
-<li class="page-item">
-    <a class="page-link" asp-controller="Event"
-       asp-action="Index"
-       asp-route-page="@i">@i</a>
-</li>
-           }
 
-}
-        </ul>
-    </nav>
-</div>
+                        <div class="event-area three text-center pt-150 pb-150">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="course-title">
+                                            <h3>search courses</h3>
+                                        </div>
+                                        <div class="course-form">
+                                            <form id="search" action="#">
+                                                <input type="search" placeholder="Search..." name="search" />
+                                                <button type="submit">search</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    @foreach (LatestPostDetail lat in Model)
+                                    {
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            <div class="single-event mb-60">
+                                                <div class="event-img">
+                                                    <a asp-controller="Event" asp-action="Detail" asp-route-id="@lat.Id">
+                                                        <img src="~/assets/img/event/@lat.Image" alt="event">
+                                                        <div class="course-hover">
+                                                            <i class="fa fa-link"></i>
+                                                        </div>
+                                                    </a>
+                                                    <div class="event-date">
+                                                        <h3>@lat.Day <span>@lat.Month</span></h3>
+                                                    </div>
+                                                </div>
+                                                <div class="event-content text-left">
+                                                    <h4><a asp-controller="Event" asp-action="Detail" asp-route-id="@lat.Id">@lat.Title</a></h4>
+                                                    <ul>
+                                                        <li><span>time:</span> @lat.Date</li>
+                                                        <li><span>venue</span> @lat.Location</li>
+                                                    </ul>
+                                                    <div class="event-content-right">
+                                                        <a class="default-btn" asp-controller="Event" asp-action="Detail" asp-route-id="@lat.Id">join now</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <nav aria-label="...">
+                                <ul class="pagination pagination-lg">
+                                    @for (int i = 1; i <= ViewBag.PageCount; i++)
+                                    {
+                                        if (i == ViewBag.page)
+                                        {
+                                            <li class="page-item active" aria-current="page">
+                                                <span class="page-link">@i</span>
+                                            </li>
+                                         }
+                                        else
+                                        {
+                                            <li class="page-item">
+                                                <a class="page-link" asp-controller="Event"
+                                                   asp-action="Index"
+                                                   asp-route-page="@i">@i
+                                                </a>
+                                            </li>
+                                        }
 
-<!-- Event End -->
+                                      }
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <!-- Event End -->
