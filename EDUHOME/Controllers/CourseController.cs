@@ -41,9 +41,15 @@ namespace EDUHOME.Controllers
 
         public IActionResult Detail(int? id)
         {
-            CourseDetail courseDetail = _db.CourseDetails.Include(d=>d.Course).FirstOrDefault(c => c.CourseId == id);
+            CoursesDetailsVM coursesDetails = new CoursesDetailsVM
+            {
+                 CourseDetail = _db.CourseDetails.Include(d=>d.Course).FirstOrDefault(c => c.CourseId == id),
+                 Course=_db.Courses.Where(c=>c.HasDeleted==false).Include(c=>c.CourseTag).
+                 ThenInclude(c=>c.TagsDetail).FirstOrDefault(c=>c.Id==id)
+            };
+           
           
-            return View(courseDetail);
+            return View(coursesDetails);
         }
     }
 }

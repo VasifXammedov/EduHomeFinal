@@ -128,6 +128,8 @@
     <Compile Remove="Migrations\20201230164612_CreateEvenDetail.Designer.cs" />
     <Compile Remove="Migrations\20210101165752_AppUsersTables.cs" />
     <Compile Remove="Migrations\20210101165752_AppUsersTables.Designer.cs" />
+    <Compile Remove="Migrations\20210105180746_CreateTagsCourse.cs" />
+    <Compile Remove="Migrations\20210105180746_CreateTagsCourse.Designer.cs" />
     <Compile Remove="Models\BestDetail.cs" />
     <Compile Remove="Models\CourseDetailEncineering.cs" />
     <Compile Remove="Models\CourseFeaturesDetail.cs" />

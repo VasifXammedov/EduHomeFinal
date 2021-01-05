@@ -88,66 +88,19 @@
                 </div>
                 <div class="skill-wrapper">
                     <div class="row">
-                        <div class="col-sm-4">
-                            <div class="skill-bar-item">
-                                <span>language</span>
-                                <div class="progress">
-                                    <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 85%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                                        <span class="text-top">85%</span>
+                        @foreach (TeacherSkill ts in Model.Teacher.TeacherSkill)
+                        {
+                            <div class="col-sm-4">
+                                <div class="skill-bar-item">
+                                    <span>@ts.SkillsTeacherDetail.Name</span>
+                                    <div class="progress">
+                                        <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 85%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+                                            <span class="text-top">@ts.SkillsTeacherDetail.Rate%</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="skill-bar-item">
-                                <span>team leader</span>
-                                <div class="progress">
-                                    <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 90%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                                        <span class="text-top">90%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="skill-bar-item">
-                                <span>development</span>
-                                <div class="progress">
-                                    <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 85%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                                        <span class="text-top">85%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="skill-bar-item">
-                                <span>design</span>
-                                <div class="progress">
-                                    <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 95%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                                        <span class="text-top">95%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="skill-bar-item">
-                                <span>innovation</span>
-                                <div class="progress">
-                                    <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 85%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                                        <span class="text-top">85%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="skill-bar-item">
-                                <span>communication</span>
-                                <div class="progress">
-                                    <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: 95%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                                        <span class="text-top">95%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        }
                     </div>
                 </div>
             </div>

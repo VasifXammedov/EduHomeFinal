@@ -24,6 +24,6 @@ namespace EDUHOME.Models
         public DateTime? TimeDeleted { get; set; }
 
         public BestDetailesWorkshop BestDetailesWorkshop { get; set; }
-
+       
     }
 }

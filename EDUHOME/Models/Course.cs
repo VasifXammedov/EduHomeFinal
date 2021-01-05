@@ -23,9 +23,9 @@ namespace EDUHOME.Models
         public DateTime? DeletedTime { get; set; }
 
         public CourseDetail CourseDetail { get; set; }
-       
-        //public CourseDetailEncineering CourseDetailEncineering { get; set; }
-        //public int CourseDetailEncineeringId { get; set; }
+
+        public ICollection<CourseTag> CourseTag { get; set; }
+
 
     }
 }

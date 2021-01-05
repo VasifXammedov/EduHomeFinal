@@ -1,4 +1,4 @@
-﻿@model CourseDetail
+﻿@model CoursesDetailsVM
 @{
     ViewData["Title"] = "CourseDetail";
 }
@@ -58,15 +58,15 @@
                         <div class="course-details-left">
                             <div class="single-course-left">
                                 <h3>ABOUT COURSE</h3>
-                                <p>@Html.Raw(Model.About)</p>
+                                <p>@Html.Raw(Model.CourseDetail.About)</p>
                             </div>
                             <div class="single-course-left">
                                 <h3>HOW TO APPLY</h3>
-                                <p>@Html.Raw(Model.AboutApply)</p>
+                                <p>@Html.Raw(Model.CourseDetail.AboutApply)</p>
                             </div>
                             <div class="single-course-left">
                                 <h3>CERTIFICATION</h3>
-                                @Html.Raw(Model.AboutCertification)
+                                @Html.Raw(Model.CourseDetail.AboutCertification)
                             </div>
                         </div>
                         <div class="course-details-right">
@@ -75,10 +75,10 @@
 
                                 <li>starts <span>25 JUNE, 2017</span></li>
                                 <li>duration <span>6 MONTH</span></li>
-                                <li>class duration <span>@Model.ClassDuration</span></li>
-                                <li>skill level <span>@Model.SkillLevel</span></li>
-                                <li>language <span>@Model.Language</span></li>
-                                <li>students <span>@Model.StudentsCount</span></li>
+                                <li>class duration <span>@Model.CourseDetail.ClassDuration</span></li>
+                                <li>skill level <span>@Model.CourseDetail.SkillLevel</span></li>
+                                <li>language <span>@Model.CourseDetail.Language</span></li>
+                                <li>students <span>@Model.CourseDetail.StudentsCount</span></li>
                                 <li>assesments <span>self</span></li>
                             </ul>
                             <h3 class="red">course fee $20000</h3>
@@ -148,34 +148,76 @@
                     <div class="single-blog-widget mb-50">
                         <h3>latest post</h3>
                         @*@foreach (LatestPostDetail latest in Model.LatestPostDetails)
-                        {
-                            <div class="single-post mb-30">
-                                <div class="single-post-img">
-                                    <a asp-controller="CoursesDetailes" asp-action="Index">
-                                        <img src="~/assets/img/post/@latest.Image" alt="post">
-                                        <div class="blog-hover">
-                                            <i class="fa fa-link"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="single-post-content">
-                                    <h4><a asp-controller="CoursesDetailes" asp-action="Index">@latest.Title</a></h4>
-                                    <p>By Alex  / @latest.Date</p>
-                                </div>
+            {
+                <div class="single-post mb-30">
+                    <div class="single-post-img">
+                        <a asp-controller="CoursesDetailes" asp-action="Index">
+                            <img src="~/assets/img/post/@latest.Image" alt="post">
+                            <div class="blog-hover">
+                                <i class="fa fa-link"></i>
                             </div>
-                        }*@
+                        </a>
+                    </div>
+                    <div class="single-post-content">
+                        <h4><a asp-controller="CoursesDetailes" asp-action="Index">@latest.Title</a></h4>
+                        <p>By Alex  / @latest.Date</p>
+                    </div>
+                </div>
+            }*@
 
                     </div>
-
+                    <div class="single-blog-widget mb-50">
+                        <h3>latest post</h3>
+                        <div class="single-post mb-30">
+                            <div class="single-post-img">
+                                <a href="#">
+                                    <img src="~/assets/img/post/post1.jpg" alt="post">
+                                    <div class="blog-hover">
+                                        <i class="fa fa-link"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="single-post-content">
+                                <h4><a href="#">English Language Course for you</a></h4>
+                                <p>By Alex  /  June 20, 2017</p>
+                            </div>
+                        </div>
+                        <div class="single-post mb-30">
+                            <div class="single-post-img">
+                                <a href="#">
+                                    <img src="~/assets/img/post/post2.jpg" alt="post">
+                                    <div class="blog-hover">
+                                        <i class="fa fa-link"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="single-post-content">
+                                <h4><a href="#">Advance Web Design and Develop</a></h4>
+                                <p>By Alex  /  June 20, 2017</p>
+                            </div>
+                        </div>
+                        <div class="single-post">
+                            <div class="single-post-img">
+                                <a href="#">
+                                    <img src="~/assets/img/post/post3.jpg" alt="post">
+                                    <div class="blog-hover">
+                                        <i class="fa fa-link"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="single-post-content">
+                                <h4><a href="#">English Language Course for you</a></h4>
+                                <p>By Alex  /  June 20, 2017</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="single-blog-widget">
                         <h3>tags</h3>
                         <div class="single-tag">
-                            @*@foreach (TagsDetail tags in Model.TagsDetails)
+                            @foreach (CourseTag tags in Model.Course.CourseTag)
                             {
-                                <a asp-controller="CoursesDetailes" asp-action="Index" class="mr-10 mb-10">@tags.Name</a>
-
-                            }*@
-
+                                 <a href="#" class="mr-10 mb-10">@tags.TagsDetail.Name</a>
+                            }
                         </div>
                     </div>
                 </div>

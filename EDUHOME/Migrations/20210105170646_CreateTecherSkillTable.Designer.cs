@@ -4,14 +4,16 @@ using EDUHOME.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EDUHOME.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210105170646_CreateTecherSkillTable")]
+    partial class CreateTecherSkillTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -546,28 +548,6 @@ namespace EDUHOME.Migrations
                         .IsUnique();
 
                     b.ToTable("CourseDetails");
-                });
-
-            modelBuilder.Entity("EDUHOME.Models.CourseTag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TagsDetailId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("TagsDetailId");
-
-                    b.ToTable("CourseTag");
                 });
 
             modelBuilder.Entity("EDUHOME.Models.KamranTeacherDetail", b =>
@@ -1165,21 +1145,6 @@ namespace EDUHOME.Migrations
                     b.HasOne("EDUHOME.Models.Course", "Course")
                         .WithOne("CourseDetail")
                         .HasForeignKey("EDUHOME.Models.CourseDetail", "CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("EDUHOME.Models.CourseTag", b =>
-                {
-                    b.HasOne("EDUHOME.Models.Course", "Course")
-                        .WithMany("CourseTag")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EDUHOME.Models.TagsDetail", "TagsDetail")
-                        .WithMany("CourseTag")
-                        .HasForeignKey("TagsDetailId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

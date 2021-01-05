@@ -21,6 +21,8 @@ namespace EDUHOME.Models
         public DateTime? DeletedTime { get; set; }
 
         public TeacherDetail TeacherDetail { get; set; }
-      
+
+        public ICollection<TeacherSkill> TeacherSkill { get; set; }
+
     }
 }
