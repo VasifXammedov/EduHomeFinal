@@ -76,11 +76,10 @@ namespace EDUHOME.Controllers
                 List<Course> courses = _db.Courses.Where(b => b.HasDeleted == false).Skip((int)(page - 1) * 3).Take(3).ToList();
                 return View(courses);
             }
-            
-          
+
+
         }
-
-        #endregion
-
     }
 }
+        #endregion
+

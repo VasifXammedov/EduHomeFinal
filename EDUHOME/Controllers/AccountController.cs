@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EDUHOME.DAL;
 using EDUHOME.Extensions;
 using EDUHOME.Models;
 using EDUHOME.ViewModels;
@@ -15,13 +16,16 @@ namespace EDUHOME.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly AppDbContext _db;
         public AccountController(UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
-            RoleManager<IdentityRole> roleManager)
+            RoleManager<IdentityRole> roleManager,
+            AppDbContext db)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _db = db;
         }
 
 
@@ -130,6 +134,34 @@ namespace EDUHOME.Controllers
         //}
 
         #endregion
+
+        public IActionResult Subscribe()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Subscribe(Subscriber subscribedEmail)
+        {
+            if (ModelState.IsValid)
+            {
+                Subscriber subscribed = new Subscriber();
+                subscribed.Email = subscribedEmail.Email.Trim().ToLower();
+                bool isExist = _db.Subscribers
+                      .Any(e => e.Email.Trim().ToLower() == subscribedEmail.Email.Trim().ToLower());
+                if (isExist)
+                {
+                    ModelState.AddModelError("", "This email already subscribed");
+                }
+                else
+                {
+                    await _db.Subscribers.AddAsync(subscribed);
+                    await _db.SaveChangesAsync();
+                }
+
+            }
+            return RedirectToAction("Index", "Home");
+        }
 
     }
 }

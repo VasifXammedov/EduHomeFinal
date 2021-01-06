@@ -41,6 +41,7 @@ namespace EDUHOME.DAL
         public DbSet<KamranTeacherDetail> KamranTeacherDetails { get; set; }
         public DbSet<ContactTeacherDetail> ContactTeacherDetails { get; set; }
         public DbSet<SkillsTeacherDetail> SkillsTeacherDetails { get; set; }
+        public DbSet<Subscriber> Subscribers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

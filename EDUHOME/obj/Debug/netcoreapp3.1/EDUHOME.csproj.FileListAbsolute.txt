@@ -1060,3 +1060,4 @@ C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categories\Details.cshtml.g.cs
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categories\Edit.cshtml.g.cs
 C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categories\Index.cshtml.g.cs
+C:\Users\Vasif\Desktop\EduHomeFinal\EDUHOME\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Subscribe\Default.cshtml.g.cs
