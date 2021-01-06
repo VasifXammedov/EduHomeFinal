@@ -20,20 +20,32 @@ namespace EDUHOME.Controllers
 
         #region Event Page
 
-        public IActionResult Index(int? page)
-        {
-            ViewBag.PageCount = Decimal.Ceiling((decimal)_db.LatestPostDetails.Where(b => b.IsDeleted == false).Count() / 3);
-            ViewBag.page = page;
-            if (page == null)
-            {
-                List<LatestPostDetail> LatestPostDetails = _db.LatestPostDetails.Where(b => b.IsDeleted == false).Take(3).ToList();
-                return View(LatestPostDetails);
-            }
-            List<LatestPostDetail> latestPostDetails = _db.LatestPostDetails.Where(b => b.IsDeleted == false).Skip((int)(page - 1) * 3).Take(3).ToList();
-            return View(latestPostDetails);
 
-            List<LatestPostDetail> blogDetails = _db.LatestPostDetails.Where(b => b.IsDeleted == false).ToList();
-            return View(blogDetails);
+        [HttpGet]
+        public async Task<IActionResult> Index(string searchString, int? page)
+        {
+            ViewData["GetLatestPostDetails"] = searchString;
+            var eventQuery = from x in _db.LatestPostDetails select x;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                eventQuery = eventQuery.Where(x => x.Title.Contains(searchString) && x.IsDeleted == false);
+                return View(await eventQuery.AsNoTracking().ToListAsync());
+            }
+            else
+            {
+                ViewBag.PageCount = Decimal.Ceiling((decimal)_db.LatestPostDetails.Where(b => b.IsDeleted == false).Count() / 3);
+                ViewBag.page = page;
+                if (page == null)
+                {
+                    List<LatestPostDetail> LatestPostDetails = _db.LatestPostDetails.Where(b => b.IsDeleted == false).Take(3).ToList();
+                    return View(LatestPostDetails);
+                }
+                List<LatestPostDetail> latestPostDetails = _db.LatestPostDetails.Where(b => b.IsDeleted == false).Skip((int)(page - 1) * 3).Take(3).ToList();
+                return View(latestPostDetails);
+
+            }
+
+
         }
 
 

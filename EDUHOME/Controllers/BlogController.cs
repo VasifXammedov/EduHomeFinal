@@ -20,20 +20,29 @@ namespace EDUHOME.Controllers
 
         #region Blog Page
 
-        public IActionResult Index(int? page)
+        [HttpGet]
+        public async Task<IActionResult> Index(string searchString, int? page)
         {
-            ViewBag.PageCount = Decimal.Ceiling((decimal)_db.Blogs.Where(b => b.HasDeleted == false).Count() / 3);
-            ViewBag.page = page;
-            if (page == null)
+            ViewData["GetBlogs"] = searchString;
+            var blogQuery = from x in _db.Blogs select x;
+            if (!String.IsNullOrEmpty(searchString))
             {
-                List<Blog> Blogs = _db.Blogs.Where(b => b.HasDeleted == false).Take(3).ToList();
-                return View(Blogs);
+                blogQuery = blogQuery.Where(x => x.Description.Contains(searchString) && x.HasDeleted == false);
+                return View(await blogQuery.AsNoTracking().ToListAsync());
             }
-            List<Blog> blogs = _db.Blogs.Where(b => b.HasDeleted == false).Skip((int)(page - 1) * 3).Take(3).ToList();
-            return View(blogs);
-
-            //List<Blog> blogs = _db.Blogs.Where(b => b.HasDeleted == false).ToList();
-            //return View(blogs);
+            else
+            {
+                ViewBag.PageCount = Decimal.Ceiling((decimal)_db.Blogs.Where(b => b.HasDeleted == false).Count() / 3);
+                ViewBag.page = page;
+                if (page == null)
+                {
+                    List<Blog> Blogs = _db.Blogs.Where(b => b.HasDeleted == false).Take(3).ToList();
+                    return View(Blogs);
+                }
+                List<Blog> blogs = _db.Blogs.Where(b => b.HasDeleted == false).Skip((int)(page - 1) * 3).Take(3).ToList();
+                return View(blogs);
+            }
+           
 
 
         }
@@ -55,5 +64,7 @@ namespace EDUHOME.Controllers
             };
             return View(blogDetailesVM);
         }
+
+
     }
 }

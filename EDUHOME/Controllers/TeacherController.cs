@@ -18,19 +18,31 @@ namespace EDUHOME.Controllers
             _db = db;
         }
 
-        #region Teacher Page
+        #region Teacher Page Search
 
-        public IActionResult Index(int? page)
+        [HttpGet]
+        public async Task<IActionResult> Index(string searchString, int? page)
         {
-            ViewBag.PageCount = Decimal.Ceiling((decimal)_db.TeacherDetails.Where(b => b.IsDeleted == false).Count() / 4);
-            ViewBag.page = page;
-            if (page == null)
+            ViewData["GetTeachers"] = searchString;
+            var teacherQuery = from x in _db.TeacherDetails select x;
+            if (!String.IsNullOrEmpty(searchString))
             {
-                List<TeacherDetail> teacherDetail = _db.TeacherDetails.Where(b => b.IsDeleted == false).Take(4).ToList();
-                return View(teacherDetail);
+                teacherQuery = teacherQuery.Where(x => x.Name.Contains(searchString) && x.IsDeleted == false);
+                return View(await teacherQuery.AsNoTracking().ToListAsync());
             }
-            List<TeacherDetail> teacherDetails = _db.TeacherDetails.Where(b => b.IsDeleted == false).Skip((int)(page - 1) * 4).Take(4).ToList();
-            return View(teacherDetails);
+            else
+            {
+                ViewBag.PageCount = Decimal.Ceiling((decimal)_db.TeacherDetails.Where(b => b.IsDeleted == false).Count() / 4);
+                ViewBag.page = page;
+                if (page == null)
+                {
+                    List<TeacherDetail> teacherDetail = _db.TeacherDetails.Where(b => b.IsDeleted == false).Take(4).ToList();
+                    return View(teacherDetail);
+                }
+                List<TeacherDetail> teacherDetails = _db.TeacherDetails.Where(b => b.IsDeleted == false).Skip((int)(page - 1) * 4).Take(4).ToList();
+                return View(teacherDetails);
+            }
+           
         }
 
 
