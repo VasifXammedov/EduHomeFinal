@@ -18,7 +18,7 @@ namespace EDUHOME.Controllers
             _db = db;
         }
 
-        #region Blog Page
+        #region Blog Page Search
 
         [HttpGet]
         public async Task<IActionResult> Index(string searchString, int? page)
@@ -49,12 +49,13 @@ namespace EDUHOME.Controllers
 
         #endregion
 
+        #region Detail
 
         public IActionResult Detail(int? id)
         {
             BlogDetailesVM blogDetailesVM = new BlogDetailesVM
             {
-                Blog=_db.Blogs.Where(b=>b.HasDeleted==false&&b.Id==id).Include(b=>b.BlogDetail).FirstOrDefault(),
+                Blog = _db.Blogs.Where(b => b.HasDeleted == false && b.Id == id).Include(b => b.BlogDetail).FirstOrDefault(),
                 Message = _db.Messages.Where(me => me.IsDeleted == false).FirstOrDefault(),
                 TagsDetails = _db.TagsDetails.Where(t => t.IsDeleted == false).ToList(),
                 Categories = _db.Categories.Where(cat => cat.IsDeleted).ToList(),
@@ -64,6 +65,9 @@ namespace EDUHOME.Controllers
             };
             return View(blogDetailesVM);
         }
+
+
+        #endregion
 
 
     }

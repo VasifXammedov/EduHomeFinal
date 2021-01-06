@@ -48,18 +48,23 @@ namespace EDUHOME.Controllers
 
         #endregion
 
+        #region Detail
+
         public IActionResult Detail(int? id)
         {
             TeacherDetailsVM teacherDetailsVM = new TeacherDetailsVM
             {
-                Teacher = _db.Teachers.Where(t => t.IsDeleted == false).Include(t => t.TeacherDetail).Include(t=>t.TeacherSkill).
-                ThenInclude(t=>t.SkillsTeacherDetail).FirstOrDefault(t => t.Id == id),
-                KamranTeacherDetail = _db.KamranTeacherDetails.Where(k=>k.IsDeleted==false).FirstOrDefault(),
-                ContactTeacherDetail=_db.ContactTeacherDetails.Where(con=>con.IsDeleted==false).FirstOrDefault(),
-                SkillsTeacherDetails=_db.SkillsTeacherDetails.Where(s=>s.IsDeleted==false).ToList()
+                Teacher = _db.Teachers.Where(t => t.IsDeleted == false).Include(t => t.TeacherDetail).Include(t => t.TeacherSkill).
+                ThenInclude(t => t.SkillsTeacherDetail).FirstOrDefault(t => t.Id == id),
+                KamranTeacherDetail = _db.KamranTeacherDetails.Where(k => k.IsDeleted == false).FirstOrDefault(),
+                ContactTeacherDetail = _db.ContactTeacherDetails.Where(con => con.IsDeleted == false).FirstOrDefault(),
+                SkillsTeacherDetails = _db.SkillsTeacherDetails.Where(s => s.IsDeleted == false).ToList()
             };
             return View(teacherDetailsVM);
         }
-        
+
+        #endregion
+
+
     }
 }

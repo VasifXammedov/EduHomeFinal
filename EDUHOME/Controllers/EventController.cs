@@ -18,7 +18,7 @@ namespace EDUHOME.Controllers
             _db = db;
         }
 
-        #region Event Page
+        #region Event Page Search
 
 
         [HttpGet]

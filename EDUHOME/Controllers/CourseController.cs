@@ -18,24 +18,6 @@ namespace EDUHOME.Controllers
             _db = db;
         }
 
-        //#region Course Page
-
-        //public IActionResult Index(int? page)
-        //{
-        //    ViewBag.PageCount = Decimal.Ceiling((decimal)_db.Courses.Where(b => b.HasDeleted == false).Count() / 3);
-        //    ViewBag.page = page;
-        //    if (page == null)
-        //    {
-        //        List<Course> Courses = _db.Courses.Where(b => b.HasDeleted == false).Take(3).ToList();
-        //        return View(Courses);
-        //    }
-        //    List<Course> courses = _db.Courses.Where(b => b.HasDeleted == false).Skip((int)(page - 1) * 3).Take(3).ToList();
-        //    return View(courses); 
-        //}
-
-        //#endregion
-
-
         #region Detail
 
         public IActionResult Detail(int? id)
@@ -53,7 +35,8 @@ namespace EDUHOME.Controllers
 
         #endregion
 
-        #region Search
+        #region Search Page
+
         [HttpGet]
         public async Task<IActionResult> Index(string searchString, int? page)
         {

@@ -135,6 +135,8 @@ namespace EDUHOME.Controllers
 
         #endregion
 
+        #region Subscribe
+
         public IActionResult Subscribe()
         {
             return View();
@@ -162,6 +164,10 @@ namespace EDUHOME.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+
+        #endregion
+
+
 
     }
 }

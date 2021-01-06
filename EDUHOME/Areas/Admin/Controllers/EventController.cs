@@ -172,6 +172,7 @@ namespace EDUHOME.Areas.Admin.Controllers
 
         #endregion
 
+        #region SendEmail
 
         public void SendEmail(string email, string subject, string htmlMessage)
         {
@@ -199,6 +200,9 @@ namespace EDUHOME.Areas.Admin.Controllers
             message.To.Add(toEmail);
             client.Send(message);
         }
+
+        #endregion
+
 
     }
 }
