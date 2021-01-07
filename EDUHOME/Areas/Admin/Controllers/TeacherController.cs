@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 namespace EDUHOME.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    //[Authorize(Rolse="Admin")]
+
     public class TeacherController : Controller
     {
         private readonly AppDbContext _db;

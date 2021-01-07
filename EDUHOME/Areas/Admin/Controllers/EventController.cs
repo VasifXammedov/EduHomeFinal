@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using EDUHOME.DAL;
 using EDUHOME.Extensions;
 using EDUHOME.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 namespace EDUHOME.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    //[Authorize(Rolse="Admin")]
     public class EventController : Controller
     {
         private readonly AppDbContext _db;

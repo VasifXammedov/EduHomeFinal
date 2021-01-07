@@ -11,6 +11,8 @@ using EDUHOME.Models;
 namespace EDUHOME.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    //[Authorize(Rolse="Admin")]
+
     public class ChoosesController : Controller
     {
         private readonly AppDbContext _context;
